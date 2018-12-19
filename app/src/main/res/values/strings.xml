@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">DemoFactory</string>
+
+    <string name="strs">--%1$10s--</string>
+    <string name="strd">--%1$10d--</string>
+    <string name="strd2">--%1$07d--</string>
+    <string name="strf">--%1$10.2f--</string>
+
+    <string-array name="strss">
+        <item>Basic usage playground</item>
+        <item>Heteroheight</item>
+        <item>Warp</item>
+        <item>Background handle</item>
+        <item>Sections</item>
+        <item>CursorAdapter</item>
+        <item>Multiple-choice mode</item>
+        <item>Heteroheight</item>
+        <item>Single-choice mode</item>
+    </string-array>
+</resources>
