@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="colorPrimaryDark">#567</item>-->
+    </style>
+
+    <style name="TextStyle">
+        <item name="android:gravity">left|top</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:text">Im Coming</item>
+    </style>
+
+</resources>
