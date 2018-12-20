@@ -2,79 +2,72 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/tv"
-        style="@style/TextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="screen" />
 
         <TextView
             android:id="@+id/tv2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/tv2_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
 
         <TextView
             android:id="@+id/tv3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
 
-        <Button
-            android:id="@+id/btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="AIDL" />
+        <TextView
+            android:id="@+id/tv4"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
+
+        <TextView
+            android:id="@+id/tv5"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="180dp"
-        android:layout_height="40dp"
-        android:background="#933"
-        android:text="180dp"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="180sp"
-        android:layout_height="40dp"
-        android:background="#339"
-        android:text="180sp"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tvr_1"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
 
-    <TextView
-        android:layout_width="180px"
-        android:layout_height="40dp"
-        android:background="#546"
-        android:text="180px"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tvr_2"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
 
-    <TextView
-        android:layout_width="355dp"
-        android:layout_height="40dp"
-        android:background="#393"
-        android:text="355dp"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tvr_3"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
+
+        <TextView
+            android:id="@+id/tvr_4"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
+
+        <TextView
+            android:id="@+id/tvr_5"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="aidl  Demo" />
+
+    </LinearLayout>
 
 </LinearLayout>

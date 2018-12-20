@@ -2,10 +2,20 @@ package com.cgy.chengy.demofactoryservice;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.util.Log;
 
 public class DDService extends Service {
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+        }
+    };
+
     private IRemoteService.Stub mBinder = new IRemoteService.Stub() {
         public int getPid() {
             Log.e("tag", "Thread: " + Thread.currentThread().getName());
@@ -21,6 +31,7 @@ public class DDService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+
     }
 
     @Override

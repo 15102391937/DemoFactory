@@ -1,4 +1,4 @@
-package com.cgy.chengy.demofactory;
+package com.cgy.chengy.demofactory.app;
 
 import android.app.Application;
 

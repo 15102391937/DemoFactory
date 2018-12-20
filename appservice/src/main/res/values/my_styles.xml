@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="wrap_33_13_single">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/gray_33</item>
+    </style>
+
+    <style name="wrap_ff_13" parent="wrap_33_13_single">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="wrap_33_12" parent="wrap_33_13_single">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="wrap_33_15" parent="wrap_33_13_single">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="width_mathch_height_30_33_15_center" parent="wrap_33_15">
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="wrap_33_16" parent="wrap_33_13_single">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="wrap_green08_13" parent="wrap_33_13_single">
+        <item name="android:textColor">@color/green_08</item>
+    </style>
+
+    <style name="wrap_88_15" parent="wrap_33_13_single">
+        <item name="android:textColor">@color/gray_88</item>
+    </style>
+
+    <style name="wrap_88_12" parent="wrap_88_15">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="wrap_88_14" parent="wrap_88_15">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="wrap_70_14" parent="wrap_33_13_single">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray_70</item>
+    </style>
+
+    <style name="wrap_33_15_dp12_ml14" parent="wrap_33_15">
+        <item name="android:drawablePadding">12sp</item>
+        <item name="android:layout_marginLeft">14dp</item>
+    </style>
+
+    <style name="wrap_33_14" parent="wrap_33_15">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="wrap_33_14_width0_weight1_nosingle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray_33</item>
+    </style>
+
+    <style name="wrap_33_14_mal24" parent="wrap_33_15">
+        <item name="android:drawablePadding">14sp</item>
+        <item name="android:layout_marginLeft">24sp</item>
+    </style>
+
+    <style name="width0_height_wrap_14_48_cen">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/gray_48</item>
+    </style>
+
+    <style name="width0_height_wrap_14_33_mr15_gravity_right_backtran">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">@dimen/common_container_marlr</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textColor">@color/gray_33</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="wrap_33_13style_weight" parent="wrap_33_13_single">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="wrap_33_13style_weight_right" parent="wrap_33_13style_weight">
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="wrap_33_14style_weight_marlr12_backtrans_hint" parent="wrap_33_13style_weight_right">
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:hint">请输入</item>
+    </style>
+
+    <style name="width_match_height0_weight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="width_match_height50_horizontal_cenv">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="width_match_height_wrap_horizontal_cenv" parent="width_match_height50_horizontal_cenv">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="width_match_height_wrap_horizontal_cenv_selector" parent="width_match_height50_horizontal_cenv">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_press_white_gray</item>
+    </style>
+
+    <style name="width_match_height_40_padl15_horizontal_cenv_selector" parent="width_match_height_wrap_horizontal_cenv_selector">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:paddingLeft">15dp</item>
+    </style>
+
+    <style name="width_match_height44" parent="width_match_height50_horizontal_cenv">
+        <item name="android:layout_height">44dp</item>
+    </style>
+
+    <style name="width_match_height36" parent="width_match_height50_horizontal_cenv">
+        <item name="android:layout_height">36dp</item>
+    </style>
+
+    <style name="width_match_wrap_pad6" parent="width_match_height50_horizontal_cenv">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+    </style>
+
+    <style name="width_match_height50_selector" parent="width_match_height50_horizontal_cenv">
+        <item name="android:background">@drawable/selector_press_white_gray</item>
+    </style>
+
+    <style name="width_match_height55_selector" parent="width_match_height50_selector">
+        <item name="android:layout_height">55dp</item>
+    </style>
+
+    <style name="width_match_height50_padlr23_selector" parent="width_match_height50_selector">
+        <item name="android:paddingLeft">23dp</item>
+        <item name="android:paddingRight">23dp</item>
+    </style>
+
+    <style name="match_wrap_cenh_mar10_backwhite">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="img_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="space_horizontal">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="space_horizontal_limit20" parent="space_horizontal">
+        <item name="android:layout_width">20dp</item>
+    </style>
+
+    <style name="space_vertical">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="divide_grayf5_width1_height12">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:background">@color/gray_e3</item>
+        <item name="android:layout_height">12dp</item>
+    </style>
+
+    <style name="divide_grayf5_width_match_height10">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/backgroundColor</item>
+        <item name="android:layout_height">12dp</item>
+    </style>
+
+    <style name="divide_line_height1_width_match">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/gray_e3</item>
+    </style>
+
+    <style name="divide_line_height1_width_match_mar10" parent="divide_line_height1_width_match">
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="tag_line_12_3_orange">
+        <item name="android:layout_width">3dp</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:background">@color/orange_ef7</item>
+    </style>
+
+    <style name="tag_line_12_3_green">
+        <item name="android:layout_width">3dp</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="wrap_gray33_14_cenv" parent="wrap_70_14">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@color/gray_33</item>
+        <item name="android:textSize">@dimen/item_font_size_b</item>
+    </style>
+
+    <style name="wrap_red_14_cenv" parent="wrap_70_14">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@color/red_f6</item>
+    </style>
+
+    <style name="mw_top18_cenv">
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="mw_top1_cenv">
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="wrap_redfe_14" parent="wrap_70_14">
+        <item name="android:textColor">@color/red_fe</item>
+    </style>
+
+    <style name="wrap_orange_f8_14_padlr5_padtb3" parent="wrap_33_13_single">
+        <item name="android:textColor">@color/orange_ef7</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="wrap_orange_f8_14_padlr8_padtb3" parent="wrap_orange_f8_14_padlr5_padtb3">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+
+    <style name="wrap_yellowff_14" parent="wrap_70_14">
+        <item name="android:textColor">@color/yellow_ff</item>
+    </style>
+
+    <style name="common_container_match_wrap_marlr">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/common_container_marlr</item>
+        <item name="android:layout_marginRight">@dimen/common_container_marlr</item>
+    </style>
+
+    <style name="width_match_height_wrap_vertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+</resources>

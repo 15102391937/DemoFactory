@@ -50,8 +50,6 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:$aspectjPluginVersion"
-        classpath "org.aspectj:aspectjtools:$aspectjVersion"
     }
 }
 
