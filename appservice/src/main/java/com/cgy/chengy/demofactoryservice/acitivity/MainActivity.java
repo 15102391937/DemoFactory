@@ -1,7 +1,9 @@
-package com.cgy.chengy.demofactoryservice;
+package com.cgy.chengy.demofactoryservice.acitivity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.cgy.chengy.demofactoryservice.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +12,4 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 }

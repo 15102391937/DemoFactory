@@ -1,4 +1,4 @@
-package com.cgy.chengy.demofactoryservice;
+package com.cgy.chengy.demofactoryservice.service;
 
 import android.app.Service;
 import android.content.Intent;
@@ -7,7 +7,9 @@ import android.os.IBinder;
 import android.os.Message;
 import android.util.Log;
 
-public class DDService extends Service {
+import com.cgy.chengy.demofactoryservice.IRemoteService;
+
+public class AidlService extends Service {
 
     Handler handler = new Handler(){
         @Override

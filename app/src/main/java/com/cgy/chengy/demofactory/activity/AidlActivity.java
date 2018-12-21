@@ -38,9 +38,13 @@ public class AidlActivity extends BaseActivity {
             }
         };
 
+        if (true) {
+
+        }
+
         //绑定远程服务
         Intent intent = new Intent();
-        intent.setComponent(new ComponentName("com.cgy.chengy.demofactoryservice", "com.cgy.chengy.demofactoryservice.DDService"));
+        intent.setComponent(new ComponentName("com.cgy.chengy.demofactoryservice", "com.cgy.chengy.demofactoryservice.service.DDService"));
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 

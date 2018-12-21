@@ -23,7 +23,7 @@
         <TextView
             android:id="@+id/tv3"
             style="@style/width_mathch_height_30_33_15_center"
-            android:text="aidl  Demo" />
+            android:text="Messenger  Demo" />
 
         <TextView
             android:id="@+id/tv4"

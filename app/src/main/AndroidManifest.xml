@@ -33,6 +33,7 @@
         </activity>
         <activity android:name=".activity.ScreenSizeActivity" />
         <activity android:name=".activity.AidlActivity" />
+        <activity android:name=".activity.MessengerActivity" />
 
     </application>
 
