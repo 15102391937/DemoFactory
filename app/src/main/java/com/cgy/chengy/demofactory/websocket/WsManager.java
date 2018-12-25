@@ -11,6 +11,7 @@ import android.text.TextUtils;
 
 import com.cgy.chengy.demofactory.BuildConfig;
 import com.cgy.chengy.demofactory.app.App;
+import com.cgy.chengy.demofactory.websocket.notify.NotifyListenerManager;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.neovisionaries.ws.client.WebSocket;
@@ -117,7 +118,7 @@ public class WsManager {
                 }
 
             } else if (response.getRespEvent() == 20) {//通知
-
+                NotifyListenerManager.getInstance().fire(response);
             }
         }
 
