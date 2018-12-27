@@ -28,12 +28,12 @@
         <TextView
             android:id="@+id/tv4"
             style="@style/width_mathch_height_30_33_15_center"
-            android:text="aidl  Demo" />
+            android:text="ScreenSize" />
 
         <TextView
             android:id="@+id/tv5"
             style="@style/width_mathch_height_30_33_15_center"
-            android:text="aidl  Demo" />
+            android:text="web go" />
 
     </LinearLayout>
 
