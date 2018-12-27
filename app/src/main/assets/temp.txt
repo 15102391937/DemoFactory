@@ -1,7 +1,10 @@
-*.a             表示忽略所有 .a 结尾的文件
-/*.c            表示忽略cat.c，不忽略 build/cat.c
-!lib.a          表示但lib.a除外
-build/          表示忽略 build/目录下的所有文件，过滤整个build文件夹；
+*.txt             表示忽略 所有 .txt 结尾的文件
+/*.txt            表示忽略 根目录下 .txt 结尾的文件
+dirt/             表示忽略 所有 dirt/目录下 所有文件
+dirt/*.txt        表示忽略 所有 dirt/一级目录下 所有文件
+
+!lib.txt          表示但lib.a除外
+
 doc/*.txt       表示会忽略doc/notes.txt但不包括 doc/server/arch.txt
 bin/            表示忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件
 /bin            表示忽略根目录下的bin文件
