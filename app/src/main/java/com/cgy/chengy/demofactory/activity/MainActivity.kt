@@ -14,7 +14,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.tv3 -> MessengerActivity.start(mActivity)
             R.id.tv4 -> ScreenSizeActivity.start(mActivity)
             R.id.tv5 -> WebGoActivity.start(mActivity)
-            R.id.tvr_1 -> ScreenSizeActivity.start(mActivity)
+            R.id.tvr_1 -> ParseUrlActivity.start(mActivity)
             R.id.tvr_2 -> ScreenSizeActivity.start(mActivity)
             R.id.tvr_3 -> ScreenSizeActivity.start(mActivity)
             R.id.tvr_4 -> ScreenSizeActivity.start(mActivity)

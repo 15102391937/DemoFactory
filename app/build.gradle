@@ -151,4 +151,8 @@ dependencies {
     implementation 'com.neovisionaries:nv-websocket-client:2.+'
     //logger日志打印工具
     implementation "com.orhanobut:logger:$loggerVersion"
+    implementation 'org.jsoup:jsoup:1.11.3'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    //下拉刷新控件---给webView下拉刷新用
+    implementation 'com.mylhyl:commonrefreshlayout:2.4'
 }

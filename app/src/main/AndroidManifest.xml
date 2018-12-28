@@ -35,6 +35,8 @@
         <activity android:name=".activity.AidlActivity" />
         <activity android:name=".activity.MessengerActivity" />
         <activity android:name=".activity.WebGoActivity" />
+        <activity android:name=".activity.ParseUrlActivity" />
+        <activity android:name=".activity.SimpleWebViewActivity" />
 
     </application>
 
