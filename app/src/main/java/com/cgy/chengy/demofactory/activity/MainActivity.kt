@@ -5,6 +5,7 @@ import android.view.View
 import com.cgy.chengy.demofactory.R
 import com.cgy.chengy.demofactory.app.BaseActivity
 
+
 class MainActivity : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
@@ -18,7 +19,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.tvr_2 -> ScreenSizeActivity.start(mActivity)
             R.id.tvr_3 -> ScreenSizeActivity.start(mActivity)
             R.id.tvr_4 -> ScreenSizeActivity.start(mActivity)
-            R.id.tvr_5 -> ScreenSizeActivity.start(mActivity)
+            R.id.tvr_5 -> doSomeTest()
         }
     }
 
@@ -39,5 +40,8 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         findViewById<View>(R.id.tvr_3).setOnClickListener(this)
         findViewById<View>(R.id.tvr_4).setOnClickListener(this)
         findViewById<View>(R.id.tvr_5).setOnClickListener(this)
+    }
+
+    private fun doSomeTest() {
     }
 }
