@@ -15,7 +15,7 @@ public class WebGoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_go);
         WebView webView = findViewById(R.id.wv);
-        webView.loadUrl("file:///android_asset/go.html");//example.html 存放在assets文件夹内
+        webView.loadUrl("file:///android_asset/schame-test.html");//example.html 存放在assets文件夹内
     }
 
     public static void start(Context context) {

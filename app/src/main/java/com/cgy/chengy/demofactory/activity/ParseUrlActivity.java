@@ -36,7 +36,7 @@ public class ParseUrlActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web_go);
+        setContentView(R.layout.activity_parse_url);
         initView();
     }
 
