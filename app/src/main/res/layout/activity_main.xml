@@ -34,7 +34,6 @@
             android:id="@+id/tv5"
             style="@style/width_mathch_height_30_33_15_center"
             android:text="web go" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -56,18 +55,16 @@
         <TextView
             android:id="@+id/tvr_3"
             style="@style/width_mathch_height_30_33_15_center"
-            android:text="aidl  Demo" />
+            android:text="do some test" />
 
         <TextView
             android:id="@+id/tvr_4"
             style="@style/width_mathch_height_30_33_15_center"
-            android:text="aidl  Demo" />
+            android:text="Messenger  Demo2" />
 
         <TextView
             android:id="@+id/tvr_5"
             style="@style/width_mathch_height_30_33_15_center"
-            android:text="aidl  Demo" />
-
+            android:text="nothing" />
     </LinearLayout>
-
 </LinearLayout>

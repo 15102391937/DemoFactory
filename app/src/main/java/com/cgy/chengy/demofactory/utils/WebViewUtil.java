@@ -1,4 +1,4 @@
-package com.cgy.chengy.demofactory.activity.util;
+package com.cgy.chengy.demofactory.utils;
 
 import android.os.Build;
 import android.text.TextUtils;

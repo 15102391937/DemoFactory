@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
 import com.cgy.chengy.demofactory.R
-import com.cgy.chengy.demofactory.activity.util.WebViewUtil
+import com.cgy.chengy.demofactory.utils.WebViewUtil
 import com.cgy.chengy.demofactory.app.BaseActivity
 import kotlinx.android.synthetic.main.activity_simple_web.*
 
