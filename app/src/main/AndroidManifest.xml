@@ -39,7 +39,11 @@
         <activity android:name=".activity.SimpleWebViewActivity" />
         <activity android:name=".activity.AidlTwoActivity" />
         <activity android:name=".activity.MessengerTwoActivity" />
-
+        <activity android:name=".activity.StartOtherAppActivity" />
+        <activity android:name=".activity.YxOpenActivity" />
+        <activity
+            android:name=".yxapi.YXEntryActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

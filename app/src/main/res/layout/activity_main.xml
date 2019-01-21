@@ -34,6 +34,11 @@
             android:id="@+id/tv5"
             style="@style/width_mathch_height_30_33_15_center"
             android:text="web go" />
+
+        <TextView
+            android:id="@+id/tv6"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="yxopen" />
     </LinearLayout>
 
     <LinearLayout
@@ -65,6 +70,6 @@
         <TextView
             android:id="@+id/tvr_5"
             style="@style/width_mathch_height_30_33_15_center"
-            android:text="nothing" />
+            android:text="startOtherApp" />
     </LinearLayout>
 </LinearLayout>

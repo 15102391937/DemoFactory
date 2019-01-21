@@ -130,8 +130,14 @@ configurations.all {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     provided files('libs/gson-2.7.jar')
     //测试框架
     testImplementation "junit:junit:$junitVersion"
@@ -155,4 +161,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.8.0'
     //下拉刷新控件---给webView下拉刷新用
     implementation 'com.mylhyl:commonrefreshlayout:2.4'
+    implementation files('libs/yxopen.jar')
 }

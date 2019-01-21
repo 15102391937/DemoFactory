@@ -15,11 +15,12 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.tv3 -> MessengerActivity.start(mActivity)
             R.id.tv4 -> ScreenSizeActivity.start(mActivity)
             R.id.tv5 -> WebGoActivity.start(mActivity)
+            R.id.tv6 -> YxOpenActivity.start(mActivity)
             R.id.tvr_1 -> ParseUrlActivity.start(mActivity)
             R.id.tvr_2 -> AidlTwoActivity.start(mActivity)
             R.id.tvr_3 -> doSomeTest()
             R.id.tvr_4 -> MessengerTwoActivity.start(mActivity)
-            R.id.tvr_5 -> ScreenSizeActivity.start(mActivity)
+            R.id.tvr_5 -> StartOtherAppActivity.start(mActivity)
         }
     }
 
@@ -35,6 +36,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         findViewById<View>(R.id.tv3).setOnClickListener(this)
         findViewById<View>(R.id.tv4).setOnClickListener(this)
         findViewById<View>(R.id.tv5).setOnClickListener(this)
+        findViewById<View>(R.id.tv6).setOnClickListener(this)
         findViewById<View>(R.id.tvr_1).setOnClickListener(this)
         findViewById<View>(R.id.tvr_2).setOnClickListener(this)
         findViewById<View>(R.id.tvr_3).setOnClickListener(this)
