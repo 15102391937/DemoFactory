@@ -130,12 +130,6 @@ configurations.all {
     }
 }
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     provided files('libs/gson-2.7.jar')
