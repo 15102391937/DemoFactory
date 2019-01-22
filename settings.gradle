@@ -1,1 +1,1 @@
-include ':app', 'appservice'
+include ':app', ':cgyutils', 'appservice'
