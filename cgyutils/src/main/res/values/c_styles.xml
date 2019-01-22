@@ -2,7 +2,7 @@
 
     <!-- dialog弹窗样式 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-    <!--dialog框背景透明，可自定义dialog框（比如圆角），没有默认Title占位置，且界面有蒙层-->
+    <!-- dialog框背景透明，可自定义dialog框（比如圆角），没有默认Title占位置，且界面有蒙层 -->
     <style name="ComWinTransBackHalfDia" parent="@android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item> <!--wind无标题占位置-->
         <item name="android:windowFrame">@null</item> <!--wind的边框-->
@@ -12,12 +12,12 @@
         <item name="android:backgroundDimAmount">0.4</item> <!--蒙层透光度, 值越小蒙层越透明-->
     </style>
 
-    <!--没有蒙层，适合加载动画弹窗用-->
+    <!-- 没有蒙层，适合加载动画弹窗用 -->
     <style name="TransparentDialog" parent="ComWinTransBackHalfDia">
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
-    <!--加载转圈动画弹窗-->
+    <!-- 加载转圈动画弹窗 -->
     <style name="LoadingDialog" parent="TransparentDialog" />
 
     <!-- tv wrap_33_xx ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -65,6 +65,11 @@
 
     <style name="wrap_33_14_width0_weight_nosingle" parent="wrap_33_13_width0_weight">
         <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="wrap_33_14_redstart" parent="wrap_33_14">
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:drawableRight">@drawable/redstart</item>
     </style>
 
     <!-- tv wrap_ff_xx ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -265,6 +270,16 @@
         <item name="android:layout_marginRight">10dp</item>
     </style>
 
+    <style name="btn_314_44_back_blue_textff16" parent="btn_314_44_back_green_textff">
+        <item name="android:background">@drawable/selector_press_blue_r5</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="btn_314_44_back_white_text3316" parent="btn_314_44_back_blue_textff16">
+        <item name="android:background">@drawable/selector_press_white_stroke_r5</item>
+        <item name="android:textColor">@color/gray_33</item>
+    </style>
+
     <!-- EditText ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <style name="edt_314_plr22_back_strograyr6">
@@ -288,6 +303,14 @@
         <item name="android:layout_marginLeft">12dp</item>
         <item name="android:layout_marginRight">12dp</item>
         <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="edt_width0_weight_hw_plr10_mlr12_back_transparent_right" parent="edt_match_plr10_mlr12_back_strograyr6_cenv">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">right</item>
+        <item name="android:background">@color/transparent</item>
     </style>
 
     <style name="et_large" parent="edt_314_plr22_back_strograyr6">
