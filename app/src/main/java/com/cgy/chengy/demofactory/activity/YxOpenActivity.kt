@@ -6,7 +6,8 @@ import android.os.Bundle
 import com.cgy.chengy.demofactory.R
 import com.cgy.chengy.demofactory.app.App
 import com.cgy.chengy.demofactory.app.BaseActivity
-import com.outim.yxopen.modelbase.Constants
+import com.outim.yxopen.modelbase.SendAuth
+import com.outim.yxopen.modelbase.YXConstants
 import kotlinx.android.synthetic.main.activity_yxopen.*
 
 /**
@@ -22,7 +23,10 @@ class YxOpenActivity : BaseActivity(){
 
     private fun initView() {
         btn.setOnClickListener {
-            App.getInstance().yxapi.sendReq(Constants.Scope.AUTHOR)
+            val req  = SendAuth.Req()
+            req.state = "demofactoryState"
+            req.scope = YXConstants.Scope.AUTHOR
+            App.getInstance().yxapi.sendReq(req)
         }
     }
 

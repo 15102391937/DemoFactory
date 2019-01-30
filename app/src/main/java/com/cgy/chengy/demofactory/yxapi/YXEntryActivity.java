@@ -3,12 +3,16 @@ package com.cgy.chengy.demofactory.yxapi;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.cgy.chengy.demofactory.app.App;
+import com.cgy.chengy.demofactory.utils.StrNumUtil;
 import com.outim.yxopen.api.IYXAPIEventHandler;
 import com.outim.yxopen.modelbase.BaseResp;
+import com.outim.yxopen.modelbase.SendAuth;
+import com.outim.yxopen.modelbase.YXConstants;
 
 /**
  * Created by ChenGY on 2019-01-21.
@@ -22,22 +26,25 @@ public class YXEntryActivity extends Activity implements IYXAPIEventHandler {
     }
 
     @Override
-    public void onResp(BaseResp baseResp) {
+    public void onResp(BaseResp resp) {
+        String scope = resp.scope;
         String result;
-        if (baseResp.errCode == BaseResp.ErrCode.ERR_OK) {
+        if (resp.errCode == BaseResp.ErrCode.ERR_OK) {
             result = "成功";
-            try {
-                String code = baseResp.data;
+            if (scope.equals(YXConstants.Scope.AUTHOR)) {
+                String code = ((SendAuth.Resp) resp).code;
                 Log.e("weChatCode", code);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-        } else if (baseResp.errCode == BaseResp.ErrCode.ERR_USER_CANCEL) {
+        } else if (resp.errCode == BaseResp.ErrCode.ERR_USER_CANCEL) {
             result = "取消";
         } else {
-            switch (baseResp.errCode) {
+            switch (resp.errCode) {
                 case BaseResp.ErrCode.ERR_AUTH_DENIED:
-                    result = "发送被拒绝";
+                    if (!TextUtils.isEmpty(resp.errStr)) {
+                        result = resp.errStr;
+                    } else {
+                        result = "发送被拒绝";
+                    }
                     break;
                 case BaseResp.ErrCode.ERR_UNSUPPORT:
                     result = "不支持错误";

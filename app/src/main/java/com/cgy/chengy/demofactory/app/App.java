@@ -18,7 +18,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
-        yxapi = YXAPI.createYXAPI(this, "jar_appid");
+        yxapi = YXAPI.createYXAPI(this, "111603115735320");
     }
 
     public static App getInstance() {

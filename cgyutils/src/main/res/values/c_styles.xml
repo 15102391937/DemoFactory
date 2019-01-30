@@ -50,6 +50,10 @@
         <item name="android:drawablePadding">12dp</item>
     </style>
 
+    <style name="wrap_33_13_selector_white" parent="wrap_33_13">
+        <item name="android:background">@drawable/selector_white_gray</item>
+    </style>
+
     <style name="wrap_33_13_width0_weight" parent="wrap_33_13">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
