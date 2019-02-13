@@ -39,7 +39,7 @@ class MessengerTwoActivity : BaseActivity() {
             override fun handleMessage(msg: Message?) {
                 msg?.let {
                     if (msg.arg1 == AuthorConstants.MSG_ID_LOGIN) {
-                        Toast.makeText(mActivity, "getCode：-- ${msg.data.getString(AuthorConstants.MSG_CODE)}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(bActivity, "getCode：-- ${msg.data.getString(AuthorConstants.MSG_CODE)}", Toast.LENGTH_SHORT).show()
 
                     }
                 }
@@ -71,7 +71,7 @@ class MessengerTwoActivity : BaseActivity() {
             }
             message.replyTo = clientMessenger
             if (serviceMessenger == null) {
-                Toast.makeText(mActivity, "serviceMessenger为空！", Toast.LENGTH_SHORT).show()
+                Toast.makeText(bActivity, "serviceMessenger为空！", Toast.LENGTH_SHORT).show()
             }
             serviceMessenger?.send(message)
         }

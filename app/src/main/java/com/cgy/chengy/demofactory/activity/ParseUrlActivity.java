@@ -51,11 +51,11 @@ public class ParseUrlActivity extends BaseActivity {
         btn.setOnClickListener(v -> {
             String urlStr = edt.getText().toString().trim();
             if (TextUtils.isEmpty(urlStr)) {
-                Toast.makeText(mActivity, "请输入网址！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(bActivity, "请输入网址！", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!urlStr.startsWith("http")) {
-                Toast.makeText(mActivity, "请检查网址是否输入正确！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(bActivity, "请检查网址是否输入正确！", Toast.LENGTH_SHORT).show();
                 return;
             }
             new ParseUrlAsyncTask().execute(urlStr);
@@ -139,12 +139,12 @@ public class ParseUrlActivity extends BaseActivity {
 
                 tv_title.setText(title);
                 tv_content.setText(description);
-                Glide.with(mActivity).load(img).placeholder(R.mipmap.ic_launcher).into(iv);
+                Glide.with(bActivity).load(img).placeholder(R.mipmap.ic_launcher).into(iv);
                 ll_container.setOnClickListener(v -> {
-                    SimpleWebViewActivity.Companion.start(mActivity, url);
+                    SimpleWebViewActivity.Companion.start(bActivity, url);
                 });
             } else {
-                Toast.makeText(mActivity, "解析错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(bActivity, "解析错误", Toast.LENGTH_SHORT).show();
             }
         }
     }

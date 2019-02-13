@@ -53,7 +53,7 @@ public class AidlActivity extends BaseActivity {
             try {
                 System.out.println("click-Thread: " + Thread.currentThread().getName());
                 if (iRemoteService == null) {
-                    Toast.makeText(mActivity, "iRemoteService为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(bActivity, "iRemoteService为空！", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 iRemoteService.getPid();

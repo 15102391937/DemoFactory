@@ -10,17 +10,18 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.tv1 -> ScreenSizeActivity.start(mActivity)
-            R.id.tv2 -> AidlActivity.start(mActivity)
-            R.id.tv3 -> MessengerActivity.start(mActivity)
-            R.id.tv4 -> ScreenSizeActivity.start(mActivity)
-            R.id.tv5 -> WebGoActivity.start(mActivity)
-            R.id.tv6 -> YxOpenActivity.start(mActivity)
-            R.id.tvr_1 -> ParseUrlActivity.start(mActivity)
-            R.id.tvr_2 -> AidlTwoActivity.start(mActivity)
+            R.id.tv1 -> ScreenSizeActivity.start(bActivity)
+            R.id.tv2 -> AidlActivity.start(bActivity)
+            R.id.tv3 -> MessengerActivity.start(bActivity)
+            R.id.tv4 -> ScreenSizeActivity.start(bActivity)
+            R.id.tv5 -> WebGoActivity.start(bActivity)
+            R.id.tv6 -> YxOpenActivity.start(bActivity)
+            R.id.tvr_1 -> ParseUrlActivity.start(bActivity)
+            R.id.tvr_2 -> AidlTwoActivity.start(bActivity)
             R.id.tvr_3 -> doSomeTest()
-            R.id.tvr_4 -> MessengerTwoActivity.start(mActivity)
-            R.id.tvr_5 -> StartOtherAppActivity.start(mActivity)
+            R.id.tvr_4 -> MessengerTwoActivity.start(bActivity)
+            R.id.tvr_5 -> StartOtherAppActivity.start(bActivity)
+            R.id.tvr_6 -> CoroutineActivity.start(bActivity)
         }
     }
 
@@ -42,6 +43,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         findViewById<View>(R.id.tvr_3).setOnClickListener(this)
         findViewById<View>(R.id.tvr_4).setOnClickListener(this)
         findViewById<View>(R.id.tvr_5).setOnClickListener(this)
+        findViewById<View>(R.id.tvr_6).setOnClickListener(this)
     }
 
     private fun doSomeTest() {

@@ -48,7 +48,7 @@ public class AidlTwoActivity extends BaseActivity {
         findViewById(R.id.btn).setOnClickListener(v -> {
             try {
                 if (yxSdkAidl == null) {
-                    Toast.makeText(mActivity, "yxSdkAidl为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(bActivity, "yxSdkAidl为空！", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 yxSdkAidl.startAuthorAct();

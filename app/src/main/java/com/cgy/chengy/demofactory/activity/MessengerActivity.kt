@@ -33,9 +33,9 @@ class MessengerActivity : BaseActivity() {
             override fun handleMessage(msg: Message?) {
                 msg?.let {
                     if (msg.arg1 == 200) {
-                        Toast.makeText(mActivity, "成功", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(bActivity, "成功", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(mActivity, "失败", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(bActivity, "失败", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -67,7 +67,7 @@ class MessengerActivity : BaseActivity() {
             }
             message.replyTo = clientMessenger
             if (serviceMessenger == null) {
-                Toast.makeText(mActivity, "serviceMessenger为空！", Toast.LENGTH_SHORT).show()
+                Toast.makeText(bActivity, "serviceMessenger为空！", Toast.LENGTH_SHORT).show()
             }
             serviceMessenger?.send(message)
         }
