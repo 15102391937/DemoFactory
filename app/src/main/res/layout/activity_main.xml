@@ -39,6 +39,11 @@
             android:id="@+id/tv6"
             style="@style/width_mathch_height_30_33_15_center"
             android:text="yxopen" />
+
+        <TextView
+            android:id="@+id/tv7"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="popup" />
     </LinearLayout>
 
     <LinearLayout

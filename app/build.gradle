@@ -156,4 +156,5 @@ dependencies {
     //下拉刷新控件---给webView下拉刷新用
     implementation 'com.mylhyl:commonrefreshlayout:2.4'
     implementation files('libs/yxopen.jar')
+    implementation 'com.github.razerdp:BasePopup:2.1.8'
 }

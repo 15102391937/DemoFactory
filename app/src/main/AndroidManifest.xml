@@ -47,6 +47,7 @@
             android:name=".yxapi.YXEntryActivity"
             android:exported="true" />
         <activity android:name=".activity.CoroutineActivity" />
+        <activity android:name=".activity.PopupActivity" />
     </application>
 
 </manifest>
