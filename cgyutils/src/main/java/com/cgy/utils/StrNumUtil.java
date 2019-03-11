@@ -156,6 +156,34 @@ public class StrNumUtil {
     /**
      * 判空获取值
      */
+    public static String getEmptyStr(Object obj) {
+        String result = "";
+        if (obj != null) {
+            String str = obj.toString();
+            if (!TextUtils.isEmpty(str)) {
+                result = str;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 判空获取值（需要的）
+     */
+    public static String getEmptyStr(Object obj, String need) {
+        String result = need;
+        if (obj != null) {
+            String str = obj.toString();
+            if (!TextUtils.isEmpty(str)) {
+                result = str;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 判空获取值
+     */
     public static String getEmptyStr(String str) {
         String result = "";
         if (!TextUtils.isEmpty(str)) {
