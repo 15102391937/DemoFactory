@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- 常用色 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <color name="transparent_half">#80000000</color>
     <color name="backGroundColor_f4">#f4f4f4</color>
@@ -10,14 +9,12 @@
     <color name="orange_ef">#EF7639</color>
     <color name="yellow_fd">#fdaf1f</color>
     <color name="green_08">#08ccbb</color>
+    <color name="green_16">#16A085</color>
     <color name="blue_22">#229ff7</color>
+    <color name="blue_00">#007ee5</color>
     <color name="purple_d5">#d580f5</color>
 
-    <color name="green_16">#16A085</color>
-    <color name="blue_00">#007ee5</color>
-
     <!-- gray_xx ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
     <color name="gray_33">#333333</color>
     <color name="gray_d3">#d3d3d3</color>
     <color name="gray_c2">#c2c2c2</color>
@@ -25,13 +22,16 @@
     <color name="gray_e3">#e3e3e3</color>
     <color name="gray_f9">#f9f9f9</color>
     <color name="gray_e1">#e1e1e1</color>
+    <color name="gray_ed">#ededed</color>
     <color name="gray_f5">#f5f5f5</color>
     <color name="gray_a3">#a3a3a3</color>
     <color name="gray_99">#999999</color>
+    <color name="gray_9b">#9b9b9b</color>
     <color name="gray_88">#888888</color>
     <color name="gray_70">#707070</color>
     <color name="gray_6c">#6C6C6C</color>
     <color name="gray_48">#484848</color>
+    <color name="gray_4a">#4a4a4a</color>
+    <color name="gray_97">#979797</color>
     <color name="gray_22">#222222</color>
-
 </resources>
