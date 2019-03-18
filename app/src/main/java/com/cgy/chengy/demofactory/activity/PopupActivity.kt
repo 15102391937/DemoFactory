@@ -4,17 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import com.cgy.chengy.demofactory.R
 import com.cgy.chengy.demofactory.app.BaseActivity
 import com.cgy.chengy.demofactory.popup.PopupAniUtil
 import com.cgy.chengy.demofactory.popup.PopupTest1
-import razerdp.basepopup.QuickPopupConfig
 import razerdp.basepopup.QuickPopupBuilder
+import razerdp.basepopup.QuickPopupConfig
 import razerdp.widget.QuickPopup
-import java.security.AccessController.getContext
 
 
 /**

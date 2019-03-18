@@ -5,7 +5,6 @@ import android.view.View
 import com.cgy.chengy.demofactory.R
 import com.cgy.chengy.demofactory.app.BaseActivity
 
-
 class MainActivity : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
@@ -23,6 +22,8 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.tvr_4 -> MessengerTwoActivity.start(bActivity)
             R.id.tvr_5 -> StartOtherAppActivity.start(bActivity)
             R.id.tvr_6 -> CoroutineActivity.start(bActivity)
+            R.id.tvr_7 -> {
+            }
         }
     }
 
@@ -46,6 +47,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         findViewById<View>(R.id.tvr_4).setOnClickListener(this)
         findViewById<View>(R.id.tvr_5).setOnClickListener(this)
         findViewById<View>(R.id.tvr_6).setOnClickListener(this)
+        findViewById<View>(R.id.tvr_7).setOnClickListener(this)
     }
 
     private fun doSomeTest() {

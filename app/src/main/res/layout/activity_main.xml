@@ -81,5 +81,9 @@
             android:id="@+id/tvr_6"
             style="@style/width_mathch_height_30_33_15_center"
             android:text="Coroutine" />
+        <TextView
+            android:id="@+id/tvr_7"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="timePicker" />
     </LinearLayout>
 </LinearLayout>
