@@ -12,7 +12,6 @@ import static java.lang.System.currentTimeMillis;
 /**
  * 日期扩展类
  */
-
 public class DateUtil {
     public static final String TIME_REG_YMD = "yyyy年MM月dd日";
     public static final String TIME_REG_YMD2 = "yyyy/MM/dd";
@@ -25,7 +24,10 @@ public class DateUtil {
     public static final String TIME_REG_YMDHM2 = "yyyy-MM-dd HH:mm";
     public static final String TIME_REG_YMDHMS = "yyyy-MM-dd HH:mm:ss";
     public static final String TIME_REG_YMDHMS2 = "yyyy.MM.dd\r\nHH:mm:ss";
+    public static final String TIME_REG_YMDHMS3 = "yyyy-MM-dd\r\nHH:mm:ss";
     public static final String TIME_REG_HMS = "HH:mm:ss";
+    public static final String TIME_REG_HM = "HH:mm";
+    public static final long ONE_DAY_LONG_MILL = 24 * 60 * 60 * 1000L;
 
     //region base other to strReg
 
@@ -73,6 +75,13 @@ public class DateUtil {
      */
     public static String stampStrToDayStampStr(String time) {
         return strRegToStampStr(stampStrToStrReg(time, TIME_REG_YMD2), TIME_REG_YMD2);
+    }
+
+    /**
+     * 时间戳转为当日凌晨零点的时间戳Long
+     */
+    public static long stampStrToDayStampLong(String time) {
+        return strRegToStampLong(stampStrToStrReg(time, TIME_REG_YMD2), TIME_REG_YMD2);
     }
 
     //endregion
@@ -168,10 +177,17 @@ public class DateUtil {
     }
 
     /**
-     * 当前时间  转为  yyyy-MM-dd
+     * 当前时间  转为  yyyy.MM.dd
      */
     public static String getCurrent_yMd3() {
         return dateToStrReg(new Date(), TIME_REG_YMD3);
+    }
+
+    /**
+     * 当前时间  转为  yyyy-MM-dd
+     */
+    public static String getCurrent_yMd4() {
+        return dateToStrReg(new Date(), TIME_REG_YMD4);
     }
 
     /**
@@ -211,7 +227,7 @@ public class DateUtil {
      * 当前时间 - 未来（过去）几天  转为  时间戳Str
      */
     public static String getCurrentAddDaysStampStr(long days) {
-        long dayL = 864 * 100000 * days;
+        long dayL = 86400000 * days;
         long result = getCurrentStampLong() + dayL;
         return String.valueOf(result);
     }
@@ -224,17 +240,41 @@ public class DateUtil {
     }
 
     /**
+     * 当前时间  转时  时间戳Str(整日最后一秒)
+     */
+    public static String getCurrentStampStrByDayLast() {
+        long dayLessL = 86399000;
+        long result = stampStrToDayStampLong(getCurrentStampStr()) + dayLessL;
+        return String.valueOf(result);
+    }
+
+    /**
+     * 当前时间  转时  时间戳Long(整日)
+     */
+    public static long getCurrentStampLongByDay() {
+        return stampStrToDayStampLong(getCurrentStampStr());
+    }
+
+    /**
      * 当前时间 转为  星期几
      */
     public static String getCurrentWeek() {
-        Calendar calendar = Calendar.getInstance();
-        int week = calendar.get(Calendar.WEEK_OF_MONTH);
-        return DateUtil.intToWeek(week);
+        return stampStrToyWeek(getCurrentStampLong());
     }
 
     //endregion
 
     //region timeStamp to other method
+
+    /**
+     * 时间戳Str 转为  星期几
+     */
+    public static String stampStrToyWeek(long time) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);
+        int week = calendar.get(Calendar.DAY_OF_WEEK);
+        return DateUtil.intToWeek(week);
+    }
 
     /**
      * 时间戳Str 转为  yyyy-MM-dd
@@ -244,10 +284,24 @@ public class DateUtil {
     }
 
     /**
+     * 时间戳Str 转为  yyyy年MM月dd日
+     */
+    public static String stampStrToyMd2(String time) {
+        return stampStrToStrReg(time, TIME_REG_YMD);
+    }
+
+    /**
      * 时间戳Str  转为  MM月dd日
      */
     public static String stampStrToMd(String time) {
         return stampStrToStrReg(time, TIME_REG_MD);
+    }
+
+    /**
+     * 时间戳long转为  HH:mm
+     */
+    public static String stampStrToMm(String time) {
+        return stampStrToStrReg(time, TIME_REG_HM);
     }
 
     /**
@@ -577,7 +631,6 @@ public class DateUtil {
         return spaceTime.toString();
     }
 
-
     /**
      * 将时分秒转为秒数
      */
@@ -625,6 +678,68 @@ public class DateUtil {
         if (d < 10) mao1 = ":0";
         if (s < 10) mao2 = ":0";
         return h + mao1 + d + mao2 + s;
+    }
+
+    /**
+     * 格式化今天时间为
+     * 凌晨
+     * 早上
+     * 下午
+     * 晚上
+     */
+    public static String formatDayPeriod(long timeStamp) {
+        String lastStr = stampStrToMm(timeStamp + "");
+        long dayTime = DateCalendarUtil.getTimesmorning().getTime();//今天0点
+        if ((timeStamp - dayTime) < 1000 * 60 * 60 * 6) {
+            return "凌晨" + lastStr;
+        } else if ((timeStamp - dayTime) < 1000 * 60 * 60 * 12) {
+            return "早上" + lastStr;
+        } else if ((timeStamp - dayTime) < 1000 * 60 * 60 * 18) {
+            return "下午" + lastStr;
+        } else if ((timeStamp - dayTime) < 1000 * 60 * 60 * 24) {
+            return "晚上" + lastStr;
+        }
+        return "";
+    }
+
+    /**
+     * 仿微信时间格式化:
+     * 1.今天显示上下午
+     * 2.昨天显示昨天
+     * 3.本周显示周几
+     * 4.今年显示MM月dd日
+     * 5.往年显示yyyy年MM月yy日
+     */
+    public static String formatLikeWeChat(long timeStamp) {
+        try {
+            long todayStartMillis = DateCalendarUtil.getTimesmorning().getTime();//今天0点
+            int oneDayMillis = 24 * 60 * 60 * 1000;//一天的时间戳
+            long yesterdayStartMilis = todayStartMillis - oneDayMillis;//昨天0点
+            long timeWeekStartMilis = DateCalendarUtil.getTimesWeekmorning().getTime();//本周一零点
+            long timeYearStartMilis = DateCalendarUtil.getYearStartMilis().getTime();//本年零点
+
+            //今天
+            if (timeStamp >= todayStartMillis) {
+                return formatDayPeriod(timeStamp);
+            }
+            //昨天
+            if (timeStamp >= yesterdayStartMilis) {
+                return "昨天 ";
+            }
+            //本周内
+            if (timeStamp >= timeWeekStartMilis) {
+                return stampStrToyWeek(timeStamp);
+            }
+            //今年
+            if (timeStamp < timeWeekStartMilis && timeStamp >= timeYearStartMilis) {
+                return stampStrToMd(timeStamp + "");
+            }
+            //往年
+            return stampStrToyMd2(timeStamp + "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     //endregion
