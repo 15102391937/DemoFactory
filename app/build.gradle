@@ -157,4 +157,6 @@ dependencies {
     implementation 'com.mylhyl:commonrefreshlayout:2.4'
     implementation files('libs/yxopen.jar')
     implementation 'com.github.razerdp:BasePopup:2.1.8'
+    //table控件
+    implementation 'com.github.huangyanbin:SmartTable:2.2.0'
 }

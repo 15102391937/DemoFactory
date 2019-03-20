@@ -22,8 +22,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.tvr_4 -> MessengerTwoActivity.start(bActivity)
             R.id.tvr_5 -> StartOtherAppActivity.start(bActivity)
             R.id.tvr_6 -> CoroutineActivity.start(bActivity)
-            R.id.tvr_7 -> {
-            }
+            R.id.tvr_7 -> SmartTableActivity.start(bActivity)
         }
     }
 

@@ -27,6 +27,7 @@ public class DateUtil {
     public static final String TIME_REG_YMDHMS3 = "yyyy-MM-dd\r\nHH:mm:ss";
     public static final String TIME_REG_HMS = "HH:mm:ss";
     public static final String TIME_REG_HM = "HH:mm";
+    public static final long ONE_DAY_LONG_MILL = 24 * 60 * 60 * 1000L;
 
     //region base other to strReg
 
@@ -176,10 +177,17 @@ public class DateUtil {
     }
 
     /**
-     * 当前时间  转为  yyyy-MM-dd
+     * 当前时间  转为  yyyy.MM.dd
      */
     public static String getCurrent_yMd3() {
         return dateToStrReg(new Date(), TIME_REG_YMD3);
+    }
+
+    /**
+     * 当前时间  转为  yyyy-MM-dd
+     */
+    public static String getCurrent_yMd4() {
+        return dateToStrReg(new Date(), TIME_REG_YMD4);
     }
 
     /**

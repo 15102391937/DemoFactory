@@ -499,12 +499,15 @@ public class StrNumUtil {
         return keepTwoDecimalDivideWan(Str2Float(res));
     }
 
+    /**
+     * 除以1000保留整数(13位时间戳转10位)
+     */
+    public static String divideQian(String res) {
+        return (int) (Str2Float(res) / 1000f) + "";
+    }
 
     /**
      * 乘以10000
-     *
-     * @param res
-     * @return
      */
     public static String multiWan(String res) {
         return String.valueOf(Str2Float(res) * 10000f);
@@ -513,6 +516,10 @@ public class StrNumUtil {
     //endregion
 
     //region other more
+
+    public static boolean isNeedTestData() {
+        return BuildConfig.DEBUG && true;
+    }
 
     //endregion
 }
