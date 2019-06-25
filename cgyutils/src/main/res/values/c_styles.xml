@@ -215,6 +215,12 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="ww_hw_horizontal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="wm_hw_horizontal_cenv" parent="wm_hw">
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">horizontal</item>

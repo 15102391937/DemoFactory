@@ -244,10 +244,7 @@ public class StrNumUtil {
      * list判空
      */
     public static boolean notEmptyList(List list) {
-        if (list != null && list.size() > 0) {
-            return true;
-        }
-        return false;
+        return list != null && list.size() > 0;
     }
 
     /**
@@ -262,6 +259,13 @@ public class StrNumUtil {
      */
     public static float twoIntdivideFloat(int a, int b) {
         return ((float) a) / ((float) b);
+    }
+
+    /**
+     * 俩String 格式int数据相乘
+     */
+    public static String twoIntStrMutipyInt(String a, String b) {
+        return Str2Int(a) * Str2Int(b) + "";
     }
 
     /**

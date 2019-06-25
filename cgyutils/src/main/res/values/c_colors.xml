@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 常用色 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <color name="transparent">#00000000</color>
     <color name="transparent_half">#80000000</color>
     <color name="backGroundColor_f4">#f4f4f4</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 
     <!-- 赤橙黄绿蓝紫 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <color name="red_ff">#FF4234</color>

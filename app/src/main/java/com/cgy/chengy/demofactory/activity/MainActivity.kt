@@ -1,5 +1,6 @@
 package com.cgy.chengy.demofactory.activity
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import com.cgy.chengy.demofactory.R
@@ -50,5 +51,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun doSomeTest() {
+        var result = 0
+        for (i in 0..10) {
+            result += i
+        }
     }
+
 }
