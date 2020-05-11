@@ -20,12 +20,12 @@
     <!-- 加载转圈动画弹窗 -->
     <style name="LoadingDialog" parent="TransparentDialog" />
 
-    <!-- tv wrap_33_xx ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- tv wrap_36_xx ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <style name="wrap_33_12">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:singleLine">true</item>
         <item name="android:textColor">@color/gray_33</item>
     </style>
@@ -69,11 +69,6 @@
 
     <style name="wrap_33_14_width0_weight_nosingle" parent="wrap_33_13_width0_weight">
         <item name="android:layout_weight">1</item>
-    </style>
-
-    <style name="wrap_33_14_redstart" parent="wrap_33_14">
-        <item name="android:drawablePadding">3dp</item>
-        <item name="android:drawableRight">@drawable/redstart</item>
     </style>
 
     <!-- tv wrap_ff_xx ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -160,17 +155,19 @@
         <item name="android:textColor">@color/orange_ef</item>
     </style>
 
+    <style name="wrap_gray6_13" parent="wrap_33_13">
+        <item name="android:textColor">@color/gray_66</item>
+    </style>
+
+    <style name="wrap_gray9_13" parent="wrap_33_13">
+        <item name="android:textColor">@color/gray_99</item>
+    </style>
+
     <!-- img_wrap_xx ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <style name="img_wrap">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="img_wrap_mlr12_rightrow" parent="img_wrap">
-        <item name="android:layout_marginRight">12dp</item>
-        <item name="android:layout_marginLeft">12dp</item>
-        <item name="android:src">@drawable/icon_row_right</item>
     </style>
 
     <!-- space ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -199,6 +196,12 @@
         <item name="android:background">@color/gray_e3</item>
     </style>
 
+    <style name="divide_line_ea_height05">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/gray_ea</item>
+    </style>
+
     <style name="divide_block_e3_height10" parent="divide_line_e3_height1">
         <item name="android:layout_height">10dp</item>
     </style>
@@ -221,9 +224,22 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="wm_hw_horizontal_cenv" parent="wm_hw">
-        <item name="android:gravity">center_vertical</item>
+    <style name="ww_hw_vertical">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ww_hw_vertical_cenh" parent="ww_hw_vertical">
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="wm_hw_horizontal" parent="wm_hw">
         <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="wm_hw_horizontal_cenv" parent="wm_hw_horizontal">
+        <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="wm_height_44_horizontal_cenv" parent="wm_hw_horizontal_cenv">
@@ -248,11 +264,6 @@
 
     <style name="wm_hw_vertical" parent="wm_hw">
         <item name="android:orientation">vertical</item>
-    </style>
-
-    <style name="wm_hw_vertical_mlrcommon" parent="wm_hw_vertical">
-        <item name="android:layout_marginLeft">@dimen/common_container_marlr</item>
-        <item name="android:layout_marginRight">@dimen/common_container_marlr</item>
     </style>
 
     <style name="wm_height0_weight">
@@ -280,16 +291,6 @@
         <item name="android:layout_marginRight">10dp</item>
     </style>
 
-    <style name="btn_314_44_back_blue_textff16" parent="btn_314_44_back_green_textff">
-        <item name="android:background">@drawable/selector_press_blue_r5</item>
-        <item name="android:textSize">16sp</item>
-    </style>
-
-    <style name="btn_314_44_back_white_text3316" parent="btn_314_44_back_blue_textff16">
-        <item name="android:background">@drawable/selector_press_white_stroke_r5</item>
-        <item name="android:textColor">@color/gray_33</item>
-    </style>
-
     <!-- EditText ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <style name="edt_314_plr22_back_strograyr6">
@@ -315,12 +316,16 @@
         <item name="android:layout_width">match_parent</item>
     </style>
 
-    <style name="edt_width0_weight_hw_plr10_mlr12_back_transparent_right" parent="edt_match_plr10_mlr12_back_strograyr6_cenv">
+    <style name="edt_width0_weight_hw_plr10_mlr12_back_transparent_left" parent="edt_match_plr10_mlr12_back_strograyr6_cenv">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:gravity">right</item>
+        <item name="android:gravity">left</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:maxLength">30</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="et_large" parent="edt_314_plr22_back_strograyr6">
@@ -328,6 +333,22 @@
         <item name="android:padding">10dp</item>
         <item name="android:singleLine">false</item>
         <item name="android:gravity">top|left</item>
+    </style>
+
+    <!-- Custom ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+    <!-- 背景透明样式 -->
+    <style name="AppTheme.transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="ww_h30_ff_14_plr14_cen" parent="wrap_ff_12">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">14dp</item>
     </style>
 
 </resources>

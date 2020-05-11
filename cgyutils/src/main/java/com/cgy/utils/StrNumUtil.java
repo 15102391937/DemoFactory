@@ -1,11 +1,12 @@
 package com.cgy.utils;
 
-import android.graphics.Color;
 import android.text.TextUtils;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by ChenGY on 2017/10/27.
@@ -17,11 +18,11 @@ public class StrNumUtil {
     /**
      * String转Int
      */
-    public static int Str2Int(String str) {
-        int i = 0;
+    public static int Str2Int(String str, int need) {
+        int i = need;
         if (!TextUtils.isEmpty(str)) {
             try {
-                i = (int) Str2Float(str);
+                i = Integer.parseInt(str);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
@@ -32,8 +33,8 @@ public class StrNumUtil {
     /**
      * String转Float
      */
-    public static float Str2Float(String str) {
-        float f = 0f;
+    public static float Str2Float(String str, float need) {
+        float f = need;
         if (!TextUtils.isEmpty(str)) {
             try {
                 f = Float.parseFloat(str);
@@ -47,8 +48,8 @@ public class StrNumUtil {
     /**
      * String转Double
      */
-    public static double Str2Double(String str) {
-        double d = 0d;
+    public static double Str2Double(String str, double need) {
+        double d = need;
         if (!TextUtils.isEmpty(str)) {
             try {
                 d = Double.parseDouble(str);
@@ -62,8 +63,8 @@ public class StrNumUtil {
     /**
      * String转Long
      */
-    public static long Str2Long(String str) {
-        long l = 0;
+    public static long Str2Long(String str, long need) {
+        long l = need;
         if (!TextUtils.isEmpty(str)) {
             try {
                 l = Long.parseLong(str);
@@ -72,6 +73,34 @@ public class StrNumUtil {
             }
         }
         return l;
+    }
+
+    /**
+     * String转Int 默认值0
+     */
+    public static int Str2Int(String str) {
+        return Str2Int(str, 0);
+    }
+
+    /**
+     * String转Float 默认值0f
+     */
+    public static float Str2Float(String str) {
+        return Str2Float(str, 0f);
+    }
+
+    /**
+     * String转Double 默认值0d
+     */
+    public static double Str2Double(String str) {
+        return Str2Double(str, 0d);
+    }
+
+    /**
+     * String转Long 默认值0l
+     */
+    public static long Str2Long(String str) {
+        return Str2Long(str, 0L);
     }
 
     /**
@@ -88,65 +117,6 @@ public class StrNumUtil {
             }
         }
         return i;
-    }
-
-    /**
-     * String转Color Int
-     */
-    public static int colorStr2ColorInt(String str) {
-        int i = 0xffffff;
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                i = Color.parseColor(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return i;
-    }
-
-    //endregion
-
-    //region random
-
-    /**
-     * 获取随机Int的字符串
-     */
-    public static String getRandomIntStr(int rang) {
-        return (int) (Math.random() * rang) + "";
-    }
-
-    /**
-     * 获取随机Int值
-     */
-    public static int getRandomInt(int rang) {
-        return (int) (Math.random() * rang);
-    }
-
-    /**
-     * 获取随机boolean值
-     */
-    public static boolean getRandomBoolean() {
-        return ((int) (Math.random() * 1000)) % 2 == 0;
-    }
-
-    /**
-     * 获取随机Str值
-     */
-    public static String getRandomStr(String str1, String str2) {
-        return getRandomBoolean() ? str1 : str2;
-    }
-
-    /**
-     * 获取随机Str值
-     */
-    public static String getRandomStr(String[] strs) {
-        if (strs != null && strs.length > 0) {
-            int i = getRandomInt(1000) % strs.length;
-            return strs[i];
-        } else {
-            return "";
-        }
     }
 
     //endregion
@@ -216,6 +186,17 @@ public class StrNumUtil {
         return result;
     }
 
+    /**
+     * 安全获取list
+     */
+    public static <T> List<T> getEmptyList(List<T> list) {
+        List<T> result = new ArrayList<T>();
+        if (list != null) {
+            result = list;
+        }
+        return result;
+    }
+
     //endregion
 
     //region other
@@ -225,6 +206,13 @@ public class StrNumUtil {
      */
     public static long compareTwoStringLong(String str1, String str2) {
         return Str2Long(str1) - Str2Long(str2);
+    }
+
+    /**
+     * 比较两个long字符串的大小
+     */
+    public static long compareTwoStringLong2(String str1, long l) {
+        return Str2Long(str1) - l;
     }
 
     /**
@@ -245,6 +233,26 @@ public class StrNumUtil {
      */
     public static boolean notEmptyList(List list) {
         return list != null && list.size() > 0;
+    }
+
+    /**
+     * list判空
+     */
+    public static boolean isEmptyList(List list) {
+        return !notEmptyList(list);
+    }
+
+    /**
+     * list兼容获取前X项
+     */
+    public static <T> List<T> safeSublist(List<T> list, int x) {
+        List<T> result = new ArrayList<>();
+        if (notEmptyList(list)) {
+            int getNum = list.size();
+            if (getNum > x) getNum = x;
+            result.addAll(list.subList(0, getNum));
+        }
+        return result;
     }
 
     /**
@@ -421,6 +429,22 @@ public class StrNumUtil {
 
     //endregion
 
+    //region For EventBus
+
+    public static String eventBusJoint(int a, int b) {
+        return a + "w-w" + b;
+    }
+
+    public static String eventBusJoint(String a, String b) {
+        return a + "w-w" + b;
+    }
+
+    public static String[] eventBusSplit(String s) {
+        return s.split("w-w");
+    }
+
+    //endregion
+
     //region 保留固定位数小数
 
     /**
@@ -499,6 +523,13 @@ public class StrNumUtil {
     /**
      * 除以10000后，保留两位小数
      */
+    public static String keepTwoDecimalDivideWan(int res) {
+        return keepTwoDecimal(res / 10000f);
+    }
+
+    /**
+     * 除以10000后，保留两位小数
+     */
     public static String keepTwoDecimalDivideWan(String res) {
         return keepTwoDecimalDivideWan(Str2Float(res));
     }
@@ -521,8 +552,16 @@ public class StrNumUtil {
 
     //region other more
 
-    public static boolean isNeedTestData() {
-        return BuildConfig.DEBUG && true;
+    public static String booleanToStr10(boolean b) {
+        return b ? "1" : "0";
+    }
+
+    public static String booleanToStr12(boolean b) {
+        return b ? "1" : "2";
+    }
+
+    public static boolean str1ToBoolean(String s) {
+        return Objects.equals(s, "1");
     }
 
     //endregion

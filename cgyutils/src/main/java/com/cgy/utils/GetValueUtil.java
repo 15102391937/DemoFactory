@@ -2,6 +2,8 @@ package com.cgy.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.text.TextUtils;
 
 /**
  * Created by ChenGY on 2017/8/1.
@@ -34,6 +36,21 @@ public class GetValueUtil {
      */
     public static float getDimensFloat(Context c, int resId) {
         return getRes(c).getDimension(resId);
+    }
+
+    /**
+     * String转Color Int
+     */
+    public static int colorStr2ColorInt(String str) {
+        int i = 0xffffff;
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                i = Color.parseColor(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
     }
 
 }

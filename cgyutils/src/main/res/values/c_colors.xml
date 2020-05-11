@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 常用色 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <color name="transparent">#00000000</color>
     <color name="transparent_half">#80000000</color>
     <color name="backGroundColor_f4">#f4f4f4</color>
-    <color name="white">#ffffff</color>
-    <color name="black">#000000</color>
+    <color name="statusBarHalfTrans">#30000000</color>
 
     <!-- 赤橙黄绿蓝紫 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <color name="red_ff">#FF4234</color>
@@ -23,16 +21,21 @@
     <color name="gray_c2">#c2c2c2</color>
     <color name="gray_f2">#f2f2f2</color>
     <color name="gray_e3">#e3e3e3</color>
+    <color name="gray_e6">#e6e6e6</color>
+    <color name="gray_ea">#eaeaea</color>
     <color name="gray_f9">#f9f9f9</color>
     <color name="gray_e1">#e1e1e1</color>
     <color name="gray_ed">#ededed</color>
+    <color name="gray_eb">#ebebeb</color>
     <color name="gray_f5">#f5f5f5</color>
     <color name="gray_a3">#a3a3a3</color>
     <color name="gray_99">#999999</color>
     <color name="gray_9b">#9b9b9b</color>
+    <color name="gray_7e">#7e7e7e</color>
     <color name="gray_88">#888888</color>
     <color name="gray_70">#707070</color>
     <color name="gray_6c">#6C6C6C</color>
+    <color name="gray_66">#666666</color>
     <color name="gray_48">#484848</color>
     <color name="gray_4a">#4a4a4a</color>
     <color name="gray_97">#979797</color>

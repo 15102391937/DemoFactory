@@ -17,8 +17,10 @@ public class DateUtil {
     public static final String TIME_REG_YMD2 = "yyyy/MM/dd";
     public static final String TIME_REG_YMD3 = "yyyy.MM.dd";
     public static final String TIME_REG_YMD4 = "yyyy-MM-dd";
+    public static final String TIME_REG_YMD5 = "yy-MM-dd";
     public static final String TIME_REG_YM = "yyyy年MM月";
     public static final String TIME_REG_MD = "MM月dd日";
+    public static final String TIME_REG_MD2 = "MM-dd";
     public static final String TIME_REG_MDHM = "MM-dd HH:mm";
     public static final String TIME_REG_YMDHM = "yyyy年MM月dd HH:mm";
     public static final String TIME_REG_YMDHM2 = "yyyy-MM-dd HH:mm";
@@ -298,9 +300,16 @@ public class DateUtil {
     }
 
     /**
+     * 时间戳Str  转为  MM-dd
+     */
+    public static String stampStrToMd2(String time) {
+        return stampStrToStrReg(time, TIME_REG_MD2);
+    }
+
+    /**
      * 时间戳long转为  HH:mm
      */
-    public static String stampStrToMm(String time) {
+    public static String stampStrToHm(String time) {
         return stampStrToStrReg(time, TIME_REG_HM);
     }
 
@@ -322,7 +331,14 @@ public class DateUtil {
      * 时间戳Str  转为  yyyy-MM-dd HH:mm
      */
     public static String stampStrToYMDHM(String time) {
-        return stampStrToStrReg(time, TIME_REG_YMDHM);
+        return stampStrToStrReg(time, TIME_REG_YMDHM2);
+    }
+
+    /**
+     * 时间戳Str  转为  yyyy年MM月
+     */
+    public static String stampStrToYM(String time) {
+        return stampStrToStrReg(time, TIME_REG_YM);
     }
 
     /**
@@ -548,9 +564,18 @@ public class DateUtil {
 
     /**
      * 计算距离（x天x时x分x秒前）
-     *
-     * @param startTimestampStr
-     * @return
+     */
+    public static String spaceFromNowToSpecTime(String startTimestampStr) {
+        try {
+            return spaceFromNowToSpecTime(Long.parseLong(startTimestampStr));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    /**
+     * 计算距离（x天x时x分x秒前）
      */
     public static String spaceFromNowToSpecTime(long startTimestampStr) {
         StringBuffer spaceTime = new StringBuffer();
@@ -559,40 +584,40 @@ public class DateUtil {
         Long distance = currentTimestamp - startTimestamp;
         if (distance == 0L)
             return "";
-        Long distanceDaysL = distance / (60 * 60 * 24 * 1000);
+        Long distanceDaysL = distance / (60 * 60 * 24 * 1000L);
         int distanceDays = distanceDaysL.intValue();
         if (distanceDays > 0) {
             spaceTime.append(distanceDays);
             spaceTime.append("天");
         }
-        distance = distance - distanceDays * (60 * 60 * 24 * 1000);
+        distance = distance - distanceDays * (60 * 60 * 24 * 1000L);
         if (distance == 0L) {
             spaceTime.append("前");
             return spaceTime.toString();
         }
-        Long distanceHoursL = distance / (60 * 60 * 1000);
+        Long distanceHoursL = distance / (60 * 60 * 1000L);
         int distanceHours = distanceHoursL.intValue();
         if (distanceHours > 0) {
             spaceTime.append(distanceHours);
             spaceTime.append("时");
         }
-        distance = distance - distanceHours * (60 * 60 * 1000);
+        distance = distance - distanceHours * (60 * 60 * 1000L);
         if (distance == 0L) {
             spaceTime.append("前");
             return spaceTime.toString();
         }
-        Long distancesML = distance / (60 * 1000);
+        Long distancesML = distance / (60 * 1000L);
         int distancesM = distancesML.intValue();
         if (distancesM > 0) {
             spaceTime.append(distancesM);
             spaceTime.append("分");
         }
-        distance = distance - distancesML * (60 * 1000);
+        distance = distance - distancesML * (60 * 1000L);
         if (distance == 0L) {
             spaceTime.append("前");
             return spaceTime.toString();
         }
-        Long distancesSL = distance / (1000);
+        Long distancesSL = distance / (1000L);
         int distancesS = distancesSL.intValue();
         if (distancesS > 0) {
             spaceTime.append(distancesS);
@@ -604,9 +629,6 @@ public class DateUtil {
 
     /**
      * 计算距离（x天x时）
-     *
-     * @param startTimestampStr
-     * @return
      */
     public static String spaceFromNowToSpecTime2(long startTimestampStr) {
         StringBuffer spaceTime = new StringBuffer();
@@ -688,7 +710,7 @@ public class DateUtil {
      * 晚上
      */
     public static String formatDayPeriod(long timeStamp) {
-        String lastStr = stampStrToMm(timeStamp + "");
+        String lastStr = stampStrToHm(timeStamp + "");
         long dayTime = DateCalendarUtil.getTimesmorning().getTime();//今天0点
         if ((timeStamp - dayTime) < 1000 * 60 * 60 * 6) {
             return "凌晨" + lastStr;
@@ -703,6 +725,33 @@ public class DateUtil {
     }
 
     /**
+     * 时间格式化:
+     * 1.今天显示HH:mm
+     * 2.今年显示MM月dd日
+     * 3.往年显示yyyy年MM月yy日
+     */
+    public static String formatLikeLinkA(String timeStampStr) {
+        try {
+            long timeStamp = Long.parseLong(timeStampStr);
+            long todayStartMillis = DateCalendarUtil.getTimesmorning().getTime();//今天0点
+            long timeYearStartMilis = DateCalendarUtil.getYearStartMilis().getTime();//本年零点
+            //今天
+            if (timeStamp >= todayStartMillis) {
+                return stampStrToHm(timeStampStr);
+            }
+            //今年
+            if (timeStamp >= timeYearStartMilis) {
+                return stampStrToMd2(timeStamp + "");
+            }
+            //往年
+            return stampStrToStrReg(timeStamp + "", TIME_REG_YMD5);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
      * 仿微信时间格式化:
      * 1.今天显示上下午
      * 2.昨天显示昨天
@@ -710,6 +759,15 @@ public class DateUtil {
      * 4.今年显示MM月dd日
      * 5.往年显示yyyy年MM月yy日
      */
+    public static String formatLikeWeChat(String timeStamp) {
+        try {
+            return formatLikeWeChat(Long.parseLong(timeStamp));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
     public static String formatLikeWeChat(long timeStamp) {
         try {
             long todayStartMillis = DateCalendarUtil.getTimesmorning().getTime();//今天0点
@@ -742,5 +800,99 @@ public class DateUtil {
         return "";
     }
 
+    /**
+     * 时间戳Str  转为  星座
+     */
+    public static String constellationJudgeByStamp(String timeStamp) {
+        String result = "";
+        String mdReg = stampStrToMd2(timeStamp);
+        if (!TextUtils.isEmpty(mdReg)) {
+            String[] md = mdReg.split("-");
+            result = constellationJudgeByMd(md[0], md[1]);
+        }
+        return result;
+    }
+
+    /**
+     * 月、日  转为  星座
+     */
+    public static String constellationJudgeByMd(String month, String day) {
+        String result = "";
+        int monthInt = StrNumUtil.Str2Int(month);
+        int dayInt = StrNumUtil.Str2Int(day);
+        if ((monthInt == 1 && dayInt >= 20)) {
+            result = "水瓶座";
+        }
+        if ((monthInt == 2 && dayInt <= 18)) {
+            result = "水瓶座";
+        }
+        if (monthInt == 2 && dayInt >= 19) {
+            result = "双鱼座";
+        }
+        if (monthInt == 3 && dayInt <= 20) {
+            result = "双鱼座";
+        }
+        if (monthInt == 3 && dayInt >= 21) {
+            result = "白羊座";
+        }
+        if (monthInt == 4 && dayInt <= 19) {
+            result = "白羊座";
+        }
+        if (monthInt == 4 && dayInt >= 20) {
+            result = "金牛座";
+        }
+        if (monthInt == 5 && dayInt <= 20) {
+            result = "金牛座";
+        }
+        if (monthInt == 5 && dayInt >= 21) {
+            result = "双子座";
+        }
+        if (monthInt == 6 && dayInt <= 21) {
+            result = "双子座";
+        }
+        if (monthInt == 6 && dayInt >= 22) {
+            result = "巨蟹座";
+        }
+        if (monthInt == 7 && dayInt <= 22) {
+            result = "巨蟹座";
+        }
+        if (monthInt == 7 && dayInt >= 23) {
+            result = "狮子座";
+        }
+        if (monthInt == 8 && dayInt <= 22) {
+            result = "狮子座";
+        }
+        if (monthInt == 8 && dayInt >= 23) {
+            result = "处女座";
+        }
+        if (monthInt == 9 && dayInt <= 22) {
+            result = "处女座";
+        }
+        if (monthInt == 9 && dayInt >= 23) {
+            result = "天秤座";
+        }
+        if (monthInt == 10 && dayInt <= 23) {
+            result = "天秤座";
+        }
+        if (monthInt == 10 && dayInt >= 24) {
+            result = "天蝎座";
+        }
+        if (monthInt == 11 && dayInt <= 22) {
+            result = "天蝎座";
+        }
+        if (monthInt == 11 && dayInt >= 23) {
+            result = "射手座";
+        }
+        if (monthInt == 12 && dayInt <= 21) {
+            result = "射手座";
+        }
+        if (monthInt == 12 && dayInt >= 22) {
+            result = "摩羯座";
+        }
+        if (monthInt == 1 && dayInt <= 19) {
+            result = "摩羯座";
+        }
+        return result;
+    }
     //endregion
 }
