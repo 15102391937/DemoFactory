@@ -44,6 +44,11 @@
             android:id="@+id/tv7"
             style="@style/width_mathch_height_30_33_15_center"
             android:text="popup" />
+
+        <TextView
+            android:id="@+id/tv8"
+            style="@style/width_mathch_height_30_33_15_center"
+            android:text="listToArgs" />
     </LinearLayout>
 
     <LinearLayout
