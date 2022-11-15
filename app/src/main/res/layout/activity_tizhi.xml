@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--内容-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <!--公式-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="密度公式"
+                android:textColor="@color/red_e3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_gongshi_midu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/midu_nv"
+                android:textColor="@color/gray_33"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="体脂公式"
+                android:textColor="@color/red_e3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_gongshi_tizhi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/tizhi_nv"
+                android:textColor="@color/gray_33"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="年龄"
+                android:textColor="@color/red_e3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_gongshi_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="22岁"
+                android:textColor="@color/gray_33"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--填数据-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/green_00" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <!--肱三头肌-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvweizhi1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="肱三头肌"
+                        android:textColor="@color/gray_33"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape_r10"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        tools:text="12" />
+                </LinearLayout>
+
+                <!--髂前上棘-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvweizhi2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="髂前上棘"
+                        android:textColor="@color/gray_33"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape_r10"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        tools:text="12" />
+                </LinearLayout>
+
+                <!--大腿-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="大腿"
+                        android:textColor="@color/gray_33"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape_r10"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        tools:text="12" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginEnd="80dp"
+                    android:background="@drawable/com_gradient_38d4_ab8f_r8"
+                    android:gravity="center"
+                    android:text="点我!点我!点我!"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="20dp"
+                    android:text="清空"
+                    android:textColor="@color/green_00"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/green_00" />
+        </LinearLayout>
+
+        <!--身体密度-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_name1"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="乖乖的身体密度为："
+                android:textColor="@color/red_e3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_r5"
+                android:gravity="center_horizontal"
+                android:textColor="@color/base_color_fill"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="1.085" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="g/cm³"
+                android:textColor="@color/green_00"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--体脂率-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_name2"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="乖乖的体脂率为："
+                android:textColor="@color/red_e3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_r5"
+                android:gravity="center_horizontal"
+                android:textColor="@color/base_color_fill"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="18.325" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="%"
+                android:textColor="@color/green_00"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--切性别、看列图-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btChange"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/com_gradient_38d4_ab8f_r8"
+                android:gravity="center"
+                android:text="切换性别"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bt_shili"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/com_gradient_38d4_ab8f_r8"
+                android:gravity="center"
+                android:text="看示例图"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/base_color_orange" />
+
+        <!--历史数据-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="@string/history"
+                android:textColor="@color/red_e3"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="3dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.3"
+                            android:gravity="center_horizontal"
+                            android:text="时间"
+                            android:textColor="@color/gray_33"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:text="姓名"
+                            android:textColor="@color/gray_33"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:gravity="center_horizontal"
+                            android:text="维度1"
+                            android:textColor="@color/gray_33"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:gravity="center_horizontal"
+                            android:text="维度2"
+                            android:textColor="@color/gray_33"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:gravity="center_horizontal"
+                            android:text="维度3"
+                            android:textColor="@color/gray_33"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:text="密度"
+                            android:textColor="@color/gray_33"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tv_tizhi"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:text="体脂"
+                            android:textColor="@color/gray_33"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/bt_delete"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:gravity="center_horizontal"
+                            android:text="操作"
+                            android:textColor="@color/gray_33"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_d3" />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_tizhi" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--性别logo-->
+    <ImageView
+        android:id="@+id/iv_xingbie"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:src="@mipmap/qingtou_nv" />
+
+    <!--示例图container-->
+    <LinearLayout
+        android:id="@+id/container_pv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <com.cgy.chengy.demofactory.photoview.PhotoView
+            android:id="@+id/pv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:text="图片可以缩放哦~"
+                android:textColor="@color/red_e3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bt_back"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:background="@drawable/com_gradient_38d4_ab8f_r8"
+                android:gravity="center"
+                android:text="返回"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

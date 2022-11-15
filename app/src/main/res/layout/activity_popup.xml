@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="100dp">
+
+    <TextView
+        android:id="@+id/tv0"
+        style="@style/wrap_33_15"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_press_white_gray"
+        android:padding="10dp"
+        android:text="切换关联基准View" />
+
+    <TextView
+        android:id="@+id/tv1"
+        style="@style/wrap_33_15"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_press_white_gray"
+        android:padding="10dp"
+        android:text="点我啊左" />
+
+    <TextView
+        android:id="@+id/tv2"
+        style="@style/wrap_33_15"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_press_white_gray"
+        android:padding="10dp"
+        android:text="点我啊上" />
+
+    <TextView
+        android:id="@+id/tv3"
+        style="@style/wrap_33_15"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_press_white_gray"
+        android:padding="10dp"
+        android:text="点我啊右" />
+
+    <TextView
+        android:id="@+id/tv4"
+        style="@style/wrap_33_15"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_press_white_gray"
+        android:padding="10dp"
+        android:text="点我啊下" />
+
+    <TextView
+        android:id="@+id/tvAn"
+        style="@style/wrap_33_15"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_press_white_gray"
+        android:padding="10dp"
+        android:text="点我啊tvAn" />
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cgy.chengy.demofactory.utils.ScaleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:scale="1.1239">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0.5dp" />
+</com.cgy.chengy.demofactory.utils.ScaleLayout>

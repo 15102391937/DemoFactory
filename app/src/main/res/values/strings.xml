@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">乖乖的H腰</string>
+
+    <string name="strs">--%1$10s--</string>
+    <string name="strd">--%1$10d--</string>
+    <string name="strd2">--%1$07d--</string>
+    <string name="strf">--%1$10.2f--</string>
+
+    <string name="midu_nv">身体密度 = 1.099421 - 0.0009929 x (三个位置的和) + 0.0000023 x (三个位置的和)² - 0.0001392 x (年龄)</string>
+    <string name="midu_nan">身体密度 = 1.10938 - 0.0008267 x (三个位置的和) + 0.0000016 x (三个位置的和)² - 0.0002574 x (年龄)</string>
+    <string name="tizhi_nv">体脂率 = （4.76 ÷ 身体密度）- 4.28</string>
+    <string name="tizhi_nan">体脂率 = （4.97 ÷ 身体密度）- 4.52</string>
+    <string name="history">历\n\n\n史\n\n\n数\n\n\n据</string>
+
+    <string-array name="strss">
+        <item>Basic usage playground</item>
+        <item>Heteroheight</item>
+        <item>Warp</item>
+        <item>Background handle</item>
+        <item>Sections</item>
+        <item>CursorAdapter</item>
+        <item>Multiple-choice mode</item>
+        <item>Heteroheight</item>
+        <item>Single-choice mode</item>
+    </string-array>
+</resources>

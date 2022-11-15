@@ -1,0 +1,898 @@
+package com.cgy.utils;
+
+import android.text.TextUtils;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import static java.lang.System.currentTimeMillis;
+
+/**
+ * 日期扩展类
+ */
+public class DateUtil {
+    public static final String TIME_REG_YMD = "yyyy年MM月dd日";
+    public static final String TIME_REG_YMD2 = "yyyy/MM/dd";
+    public static final String TIME_REG_YMD3 = "yyyy.MM.dd";
+    public static final String TIME_REG_YMD4 = "yyyy-MM-dd";
+    public static final String TIME_REG_YMD5 = "yy-MM-dd";
+    public static final String TIME_REG_YM = "yyyy年MM月";
+    public static final String TIME_REG_MD = "MM月dd日";
+    public static final String TIME_REG_MD2 = "MM-dd";
+    public static final String TIME_REG_MDHM = "MM-dd HH:mm";
+    public static final String TIME_REG_YMDHM = "yyyy年MM月dd HH:mm";
+    public static final String TIME_REG_YMDHM2 = "yyyy-MM-dd HH:mm";
+    public static final String TIME_REG_YMDHMS = "yyyy-MM-dd HH:mm:ss";
+    public static final String TIME_REG_YMDHMS2 = "yyyy.MM.dd\r\nHH:mm:ss";
+    public static final String TIME_REG_YMDHMS3 = "yyyy-MM-dd\r\nHH:mm:ss";
+    public static final String TIME_REG_HMS = "HH:mm:ss";
+    public static final String TIME_REG_HM = "HH:mm";
+    public static final long ONE_DAY_LONG_MILL = 24 * 60 * 60 * 1000L;
+
+    //region base other to strReg
+
+    /**
+     * Date  转为  自定义时间样式
+     */
+    public static String dateToStrReg(Date data, String reg) {
+        String result = "";
+        try {
+            SimpleDateFormat sf = new SimpleDateFormat(reg);
+            result = sf.format(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 时间戳Long  转为  自定义时间样式
+     */
+    public static String stampLongToStrReg(long l, String reg) {
+        Date data = new Date(l);
+        return dateToStrReg(data, reg);
+    }
+
+    /**
+     * 时间戳Str  转为  自定义时间样式
+     */
+    public static String stampStrToStrReg(String time, String reg) {
+        String result = "";
+        if (!TextUtils.isEmpty(time)) {
+            try {
+                long l = Long.parseLong(time);
+                Date data = new Date(l);
+                result = dateToStrReg(data, reg);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 时间戳转为当日凌晨零点的时间戳
+     */
+    public static String stampStrToDayStampStr(String time) {
+        return strRegToStampStr(stampStrToStrReg(time, TIME_REG_YMD2), TIME_REG_YMD2);
+    }
+
+    /**
+     * 时间戳转为当日凌晨零点的时间戳Long
+     */
+    public static long stampStrToDayStampLong(String time) {
+        return strRegToStampLong(stampStrToStrReg(time, TIME_REG_YMD2), TIME_REG_YMD2);
+    }
+
+    //endregion
+
+    //region base strReg to other
+
+    /**
+     * 自定义时间样式  转为  Date
+     */
+    public static Date strRegToDate(String time, String reg) {
+        Date date = new Date(0);
+        if (!TextUtils.isEmpty(time)) {
+            SimpleDateFormat sf = new SimpleDateFormat(reg);
+            try {
+                date = sf.parse(time);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return date;
+    }
+
+    /**
+     * 自定义时间样式  转为  时间戳long
+     */
+    public static long strRegToStampLong(String time, String reg) {
+        return strRegToDate(time, reg).getTime();
+    }
+
+    /**
+     * 自定义时间样式  转为  时间戳Str
+     */
+    public static String strRegToStampStr(String time, String reg) {
+        String result = "";
+        SimpleDateFormat sf = new SimpleDateFormat(reg);
+        if (!TextUtils.isEmpty(time)) {
+            try {
+                Date date = sf.parse(time);
+                result = date.getTime() + "";
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 自定义时间样式  转换  自定义时间样式
+     */
+    public static String StrRegToStrReg(String reg1, String reg2, String time) {
+        SimpleDateFormat sf2 = new SimpleDateFormat(reg2);
+        String result = sf2.format(new Date(strRegToStampLong(time, reg1)));
+        return result;
+    }
+
+    //endregion
+
+    //region get currentTime
+
+    /**
+     * 当前时间  转为  yyyy-MM-dd HH:mm:ss
+     */
+    public static String getCurrent_yMdHms() {
+        return dateToStrReg(new Date(), TIME_REG_YMDHMS);
+    }
+
+    /**
+     * 当前时间  转为  yyyy年MM月dd HH:mm
+     */
+    public static String getCurrent_yMdHm() {
+        return dateToStrReg(new Date(), TIME_REG_YMDHM);
+    }
+
+    /**
+     * 当前时间  转为  yyyy-MM-dd HH:mm
+     */
+    public static String getCurrent_yMdHm2() {
+        return dateToStrReg(new Date(), TIME_REG_YMDHM2);
+    }
+
+    /**
+     * 当前时间  转为  yyyy年MM月dd日
+     */
+    public static String getCurrent_yMd() {
+        return dateToStrReg(new Date(), TIME_REG_YMD);
+    }
+
+    /**
+     * 当前时间  转为  yyyy/MM/dd
+     */
+    public static String getCurrent_yMd2() {
+        return dateToStrReg(new Date(), TIME_REG_YMD2);
+    }
+
+    /**
+     * 当前时间  转为  yyyy.MM.dd
+     */
+    public static String getCurrent_yMd3() {
+        return dateToStrReg(new Date(), TIME_REG_YMD3);
+    }
+
+    /**
+     * 当前时间  转为  yyyy-MM-dd
+     */
+    public static String getCurrent_yMd4() {
+        return dateToStrReg(new Date(), TIME_REG_YMD4);
+    }
+
+    /**
+     * 当前时间  转为  yyyy年MM月
+     */
+    public static String getCurrent_yM() {
+        return dateToStrReg(new Date(), TIME_REG_YM);
+    }
+
+    /**
+     * 当前时间  转为  MM-dd HH:mm
+     */
+    public static String getCurrent_MdHm() {
+        return dateToStrReg(new Date(), TIME_REG_MDHM);
+    }
+
+    /**
+     * 当前时间  转为  时间戳Long
+     */
+    public static long getCurrentStampLong() {
+        boolean who = true;
+        if (who) {
+            return System.currentTimeMillis();
+        } else {
+            return new Date().getTime();
+        }
+    }
+
+    /**
+     * 当前时间  转为  时间戳Str
+     */
+    public static String getCurrentStampStr() {
+        return String.valueOf(getCurrentStampLong());
+    }
+
+    /**
+     * 当前时间 - 未来（过去）几天  转为  时间戳Str
+     */
+    public static String getCurrentAddDaysStampStr(long days) {
+        long dayL = 86400000 * days;
+        long result = getCurrentStampLong() + dayL;
+        return String.valueOf(result);
+    }
+
+    /**
+     * 当前时间  转时  时间戳Str(整日)
+     */
+    public static String getCurrentStampStrByDay() {
+        return stampStrToDayStampStr(getCurrentStampStr());
+    }
+
+    /**
+     * 当前时间  转时  时间戳Str(整日最后一秒)
+     */
+    public static String getCurrentStampStrByDayLast() {
+        long dayLessL = 86399000;
+        long result = stampStrToDayStampLong(getCurrentStampStr()) + dayLessL;
+        return String.valueOf(result);
+    }
+
+    /**
+     * 当前时间  转时  时间戳Long(整日)
+     */
+    public static long getCurrentStampLongByDay() {
+        return stampStrToDayStampLong(getCurrentStampStr());
+    }
+
+    /**
+     * 当前时间 转为  星期几
+     */
+    public static String getCurrentWeek() {
+        return stampStrToyWeek(getCurrentStampLong());
+    }
+
+    //endregion
+
+    //region timeStamp to other method
+
+    /**
+     * 时间戳Str 转为  星期几
+     */
+    public static String stampStrToyWeek(long time) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);
+        int week = calendar.get(Calendar.DAY_OF_WEEK);
+        return DateUtil.intToWeek(week);
+    }
+
+    /**
+     * 时间戳Str 转为  yyyy-MM-dd
+     */
+    public static String stampStrToyMd(String time) {
+        return stampStrToStrReg(time, TIME_REG_YMD4);
+    }
+
+    /**
+     * 时间戳Str 转为  yyyy年MM月dd日
+     */
+    public static String stampStrToyMd2(String time) {
+        return stampStrToStrReg(time, TIME_REG_YMD);
+    }
+
+    /**
+     * 时间戳Str  转为  MM月dd日
+     */
+    public static String stampStrToMd(String time) {
+        return stampStrToStrReg(time, TIME_REG_MD);
+    }
+
+    /**
+     * 时间戳Str  转为  MM-dd
+     */
+    public static String stampStrToMd2(String time) {
+        return stampStrToStrReg(time, TIME_REG_MD2);
+    }
+
+    /**
+     * 时间戳long转为  HH:mm
+     */
+    public static String stampStrToHm(String time) {
+        return stampStrToStrReg(time, TIME_REG_HM);
+    }
+
+    /**
+     * 时间戳Str  转为  MM-dd HH:mm
+     */
+    public static String stampStrToMDHM(String time) {
+        return stampStrToStrReg(time, TIME_REG_MDHM);
+    }
+
+    /**
+     * 时间戳Str  转为  yyyy-MM-dd HH:mm:ss
+     */
+    public static String stampStrToYMDHMS(String time) {
+        return stampStrToStrReg(time, TIME_REG_YMDHMS);
+    }
+
+    /**
+     * 时间戳Str  转为  yyyy-MM-dd HH:mm
+     */
+    public static String stampStrToYMDHM(String time) {
+        return stampStrToStrReg(time, TIME_REG_YMDHM2);
+    }
+
+    /**
+     * 时间戳Str  转为  yyyy年MM月
+     */
+    public static String stampStrToYM(String time) {
+        return stampStrToStrReg(time, TIME_REG_YM);
+    }
+
+    /**
+     * 时间戳Str  转为  yyyy-MM-dd HH:mm（如果是今年，去掉yy-, 如果是今天，去掉MM-dd）
+     */
+    public static String stampStrToYMDHM2(String time) {
+        String result = stampStrToStrReg(time, TIME_REG_YMDHM2);
+        String today = getCurrent_yMdHm2();
+        if (!TextUtils.isEmpty(result)) {
+            String[] splResult_Y = result.split("-");
+            String[] splToday_Y = today.split("-");
+            if (splResult_Y[0].equals(splToday_Y[0])) {//如果是今年，去掉yy-
+                result = result.substring(5);
+                today = today.substring(5);
+
+                String[] splResult_MD = result.split(" ");
+                String[] splToday_MD = today.split(" ");
+                if (splResult_MD[0].equals(splToday_MD[0])) {//如果是今天，去掉MM-dd
+                    result = splResult_MD[1];
+                }
+            }
+        }
+        return result;
+    }
+
+    public static String stampStrToYMDHMSNotNull(String time) {
+        if (time.isEmpty() || time.length() == 0 || time.equals("0")) {
+            return "无";
+        }
+        return stampStrToStrReg(time, TIME_REG_YMDHMS);
+    }
+
+    /**
+     * 时间戳Str  转为  MM-dd HH:mm（如果是今天，MM-dd替换为今天）
+     */
+    public static String stampStrToMDHM2(String time) {
+        String result = stampStrToStrReg(time, TIME_REG_MDHM);
+        String today = getCurrent_MdHm();
+        if (!TextUtils.isEmpty(result)) {
+            String[] splResult = result.split(" ");
+            String[] splToday = today.split(" ");
+            if (splResult[0].endsWith(splToday[0])) {
+                result = "今天 " + splResult[1];
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 时间戳Str  转为  MM-dd HH:mm（如果是今天，MM-dd去掉）
+     */
+    public static String stampStrToMDHM3(String time) {
+        String result = stampStrToStrReg(time, TIME_REG_MDHM);
+        String today = getCurrent_MdHm();
+        if (!TextUtils.isEmpty(result)) {
+            String[] splResult = result.split(" ");
+            String[] splToday = today.split(" ");
+            if (splResult[0].equals(splToday[0])) {
+                result = splResult[1];
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 时间戳Str 转为  MM.dd —  MM.dd (eg:10.03 — 10.08)
+     */
+    public static String stampStrToMdMd(String time) {
+        String result = "";
+        try {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date(Long.parseLong(time)));
+            int today = calendar.get(Calendar.DAY_OF_MONTH);
+            int toMonth = calendar.get(Calendar.MONTH) + 1;
+            calendar.add(Calendar.DAY_OF_MONTH, 6);
+            int endDay = calendar.get(Calendar.DAY_OF_MONTH);
+            int endMonth = calendar.get(Calendar.MONTH) + 1;
+
+            result = toMonth + "." + today + "  —  " + endMonth + "." + endDay;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    /**
+     * 时间戳Str  转为 星期几
+     */
+    public static String stampStrToWeek(String str) {
+        String Week = "周";
+        Calendar c = Calendar.getInstance();
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                c.setTime(new Date(Long.parseLong(str)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        int i = c.get(Calendar.DAY_OF_WEEK);
+        Week = intToWeek(i);
+        return Week;
+    }
+
+    /**
+     * int  转为 星期几
+     */
+    public static String intToWeek(int i) {
+        String Week = "周";
+        if (i == Calendar.SUNDAY) {
+            Week += "日";
+        }
+        if (i == Calendar.MONDAY) {
+            Week += "一";
+        }
+        if (i == Calendar.TUESDAY) {
+            Week += "二";
+        }
+        if (i == Calendar.WEDNESDAY) {
+            Week += "三";
+        }
+        if (i == Calendar.THURSDAY) {
+            Week += "四";
+        }
+        if (i == Calendar.FRIDAY) {
+            Week += "五";
+        }
+        if (i == Calendar.SATURDAY) {
+            Week += "六";
+        }
+        return Week;
+    }
+
+    //endregion
+
+    //region other to timeStamp method
+
+    /**
+     * yyyy年MM月dd日  转为  时间戳Str
+     */
+    public static String yMdToStampStr(String time) {
+        return strRegToStampLong(time, TIME_REG_YMD) + "";
+    }
+
+    /**
+     * yyyy-MM-dd  转为  时间戳long
+     */
+    public static long yMdToStampLong(String time) {
+        return strRegToStampLong(time, TIME_REG_YMD4);
+    }
+
+    /**
+     * yyyy/MM/dd 转为  时间戳Long
+     */
+    public static long yMdToStampLong2(String time) {
+        return strRegToStampLong(time, TIME_REG_YMD2);
+    }
+
+    //endregion
+
+    //region other method
+
+    /**
+     * 为日期添加前缀
+     */
+    public static String addPrefixForDate(String date) {
+        if (date.length() < 2) {
+            return "0" + date;
+        }
+        return date;
+    }
+
+    /**
+     * 把年月拼成时间戳
+     */
+    public static int getDaysByYearMonth(int year, int month) {
+        Calendar a = Calendar.getInstance();
+        a.set(Calendar.YEAR, year);
+        a.set(Calendar.MONTH, month - 1);
+        a.set(Calendar.DATE, 1);
+        a.roll(Calendar.DATE, -1);
+        int maxDate = a.get(Calendar.DATE);
+        return maxDate;
+    }
+
+    /**
+     * 获取一个月的第几天
+     */
+    public static int getDayOfMonth(String dateString, String reg) {
+        SimpleDateFormat sf = new SimpleDateFormat(reg);
+        int result = -1;
+        if (!TextUtils.isEmpty(dateString)) {
+            try {
+                Date date = sf.parse(dateString);
+                result = date.getDate();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 计算两个时间戳之间的秒数
+     *
+     * @param roomPlayTime
+     * @param newTime
+     * @return
+     */
+    public static int spaceFromNowTime(String roomPlayTime, String newTime) {
+        int result = 0;
+
+        Long value = null;
+        try {
+            Long playTime = Long.parseLong(roomPlayTime);
+            Long endTime = Long.parseLong(newTime);
+            value = (endTime - playTime) / 1000;
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return value.intValue();
+    }
+
+    /**
+     * 计算距离（x天x时x分x秒前）
+     */
+    public static String spaceFromNowToSpecTime(String startTimestampStr) {
+        try {
+            return spaceFromNowToSpecTime(Long.parseLong(startTimestampStr));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    /**
+     * 计算距离（x天x时x分x秒前）
+     */
+    public static String spaceFromNowToSpecTime(long startTimestampStr) {
+        StringBuffer spaceTime = new StringBuffer();
+        Long currentTimestamp = currentTimeMillis();
+        Long startTimestamp = startTimestampStr;
+        Long distance = currentTimestamp - startTimestamp;
+        if (distance == 0L)
+            return "";
+        Long distanceDaysL = distance / (60 * 60 * 24 * 1000L);
+        int distanceDays = distanceDaysL.intValue();
+        if (distanceDays > 0) {
+            spaceTime.append(distanceDays);
+            spaceTime.append("天");
+        }
+        distance = distance - distanceDays * (60 * 60 * 24 * 1000L);
+        if (distance == 0L) {
+            spaceTime.append("前");
+            return spaceTime.toString();
+        }
+        Long distanceHoursL = distance / (60 * 60 * 1000L);
+        int distanceHours = distanceHoursL.intValue();
+        if (distanceHours > 0) {
+            spaceTime.append(distanceHours);
+            spaceTime.append("时");
+        }
+        distance = distance - distanceHours * (60 * 60 * 1000L);
+        if (distance == 0L) {
+            spaceTime.append("前");
+            return spaceTime.toString();
+        }
+        Long distancesML = distance / (60 * 1000L);
+        int distancesM = distancesML.intValue();
+        if (distancesM > 0) {
+            spaceTime.append(distancesM);
+            spaceTime.append("分");
+        }
+        distance = distance - distancesML * (60 * 1000L);
+        if (distance == 0L) {
+            spaceTime.append("前");
+            return spaceTime.toString();
+        }
+        Long distancesSL = distance / (1000L);
+        int distancesS = distancesSL.intValue();
+        if (distancesS > 0) {
+            spaceTime.append(distancesS);
+            spaceTime.append("秒");
+        }
+        spaceTime.append("前");
+        return spaceTime.toString();
+    }
+
+    /**
+     * 计算距离（x天x时）
+     */
+    public static String spaceFromNowToSpecTime2(long startTimestampStr) {
+        StringBuffer spaceTime = new StringBuffer();
+        Long currentTimestamp = currentTimeMillis();
+        Long startTimestamp = startTimestampStr;
+        Long distance = currentTimestamp - startTimestamp;
+        if (distance == 0L) return "";
+        Long distanceDaysL = distance / (60 * 60 * 24 * 1000);
+        int distanceDays = distanceDaysL.intValue();
+        if (distanceDays > 0) {
+            spaceTime.append(distanceDays);
+            spaceTime.append("天");
+        }
+        distance = distance - distanceDays * (60 * 60 * 24 * 1000);
+        if (distance == 0L) {
+            return spaceTime.toString();
+        }
+        Long distanceHoursL = distance / (60 * 60 * 1000);
+        int distanceHours = distanceHoursL.intValue();
+        spaceTime.append(distanceHours);
+        spaceTime.append("时");
+        return spaceTime.toString();
+    }
+
+    /**
+     * 将时分秒转为秒数
+     */
+    public static int HMSToSecond(String time) {
+        int result = 0;
+        if (!TextUtils.isEmpty(time)) {
+            int index1 = time.indexOf(":");
+            int index2 = time.indexOf(":", index1 + 1);
+            int hh = Integer.parseInt(time.substring(0, index1));
+            int mi = Integer.parseInt(time.substring(index1 + 1, index2));
+            int ss = Integer.parseInt(time.substring(index2 + 1));
+            result = hh * 60 * 60 + mi * 60 + ss;
+        }
+        return result;
+    }
+
+    /**
+     * 将秒数转为时分秒
+     */
+    public static String secondToHMS(int second) {
+        int h = 0;
+        int d = 0;
+        int s = 0;
+        int temp = second % 3600;
+        if (second > 3600) {
+            h = second / 3600;
+            if (temp != 0) {
+                if (temp > 60) {
+                    d = temp / 60;
+                    if (temp % 60 != 0) {
+                        s = temp % 60;
+                    }
+                } else {
+                    s = temp;
+                }
+            }
+        } else {
+            d = second / 60;
+            if (second % 60 != 0) {
+                s = second % 60;
+            }
+        }
+        String mao1 = ":";
+        String mao2 = ":";
+        if (d < 10) mao1 = ":0";
+        if (s < 10) mao2 = ":0";
+        return h + mao1 + d + mao2 + s;
+    }
+
+    /**
+     * 格式化今天时间为
+     * 凌晨
+     * 早上
+     * 下午
+     * 晚上
+     */
+    public static String formatDayPeriod(long timeStamp) {
+        String lastStr = stampStrToHm(timeStamp + "");
+        long dayTime = DateCalendarUtil.getTimesmorning().getTime();//今天0点
+        if ((timeStamp - dayTime) < 1000 * 60 * 60 * 6) {
+            return "凌晨" + lastStr;
+        } else if ((timeStamp - dayTime) < 1000 * 60 * 60 * 12) {
+            return "早上" + lastStr;
+        } else if ((timeStamp - dayTime) < 1000 * 60 * 60 * 18) {
+            return "下午" + lastStr;
+        } else if ((timeStamp - dayTime) < 1000 * 60 * 60 * 24) {
+            return "晚上" + lastStr;
+        }
+        return "";
+    }
+
+    /**
+     * 时间格式化:
+     * 1.今天显示HH:mm
+     * 2.今年显示MM月dd日
+     * 3.往年显示yyyy年MM月yy日
+     */
+    public static String formatLikeLinkA(String timeStampStr) {
+        try {
+            long timeStamp = Long.parseLong(timeStampStr);
+            long todayStartMillis = DateCalendarUtil.getTimesmorning().getTime();//今天0点
+            long timeYearStartMilis = DateCalendarUtil.getYearStartMilis().getTime();//本年零点
+            //今天
+            if (timeStamp >= todayStartMillis) {
+                return stampStrToHm(timeStampStr);
+            }
+            //今年
+            if (timeStamp >= timeYearStartMilis) {
+                return stampStrToMd2(timeStamp + "");
+            }
+            //往年
+            return stampStrToStrReg(timeStamp + "", TIME_REG_YMD5);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
+     * 仿微信时间格式化:
+     * 1.今天显示上下午
+     * 2.昨天显示昨天
+     * 3.本周显示周几
+     * 4.今年显示MM月dd日
+     * 5.往年显示yyyy年MM月yy日
+     */
+    public static String formatLikeWeChat(String timeStamp) {
+        try {
+            return formatLikeWeChat(Long.parseLong(timeStamp));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    public static String formatLikeWeChat(long timeStamp) {
+        try {
+            long todayStartMillis = DateCalendarUtil.getTimesmorning().getTime();//今天0点
+            int oneDayMillis = 24 * 60 * 60 * 1000;//一天的时间戳
+            long yesterdayStartMilis = todayStartMillis - oneDayMillis;//昨天0点
+            long timeWeekStartMilis = DateCalendarUtil.getTimesWeekmorning().getTime();//本周一零点
+            long timeYearStartMilis = DateCalendarUtil.getYearStartMilis().getTime();//本年零点
+
+            //今天
+            if (timeStamp >= todayStartMillis) {
+                return formatDayPeriod(timeStamp);
+            }
+            //昨天
+            if (timeStamp >= yesterdayStartMilis) {
+                return "昨天 ";
+            }
+            //本周内
+            if (timeStamp >= timeWeekStartMilis) {
+                return stampStrToyWeek(timeStamp);
+            }
+            //今年
+            if (timeStamp < timeWeekStartMilis && timeStamp >= timeYearStartMilis) {
+                return stampStrToMd(timeStamp + "");
+            }
+            //往年
+            return stampStrToyMd2(timeStamp + "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
+     * 时间戳Str  转为  星座
+     */
+    public static String constellationJudgeByStamp(String timeStamp) {
+        String result = "";
+        String mdReg = stampStrToMd2(timeStamp);
+        if (!TextUtils.isEmpty(mdReg)) {
+            String[] md = mdReg.split("-");
+            result = constellationJudgeByMd(md[0], md[1]);
+        }
+        return result;
+    }
+
+    /**
+     * 月、日  转为  星座
+     */
+    public static String constellationJudgeByMd(String month, String day) {
+        String result = "";
+        int monthInt = StrNumUtil.Str2Int(month);
+        int dayInt = StrNumUtil.Str2Int(day);
+        if ((monthInt == 1 && dayInt >= 20)) {
+            result = "水瓶座";
+        }
+        if ((monthInt == 2 && dayInt <= 18)) {
+            result = "水瓶座";
+        }
+        if (monthInt == 2 && dayInt >= 19) {
+            result = "双鱼座";
+        }
+        if (monthInt == 3 && dayInt <= 20) {
+            result = "双鱼座";
+        }
+        if (monthInt == 3 && dayInt >= 21) {
+            result = "白羊座";
+        }
+        if (monthInt == 4 && dayInt <= 19) {
+            result = "白羊座";
+        }
+        if (monthInt == 4 && dayInt >= 20) {
+            result = "金牛座";
+        }
+        if (monthInt == 5 && dayInt <= 20) {
+            result = "金牛座";
+        }
+        if (monthInt == 5 && dayInt >= 21) {
+            result = "双子座";
+        }
+        if (monthInt == 6 && dayInt <= 21) {
+            result = "双子座";
+        }
+        if (monthInt == 6 && dayInt >= 22) {
+            result = "巨蟹座";
+        }
+        if (monthInt == 7 && dayInt <= 22) {
+            result = "巨蟹座";
+        }
+        if (monthInt == 7 && dayInt >= 23) {
+            result = "狮子座";
+        }
+        if (monthInt == 8 && dayInt <= 22) {
+            result = "狮子座";
+        }
+        if (monthInt == 8 && dayInt >= 23) {
+            result = "处女座";
+        }
+        if (monthInt == 9 && dayInt <= 22) {
+            result = "处女座";
+        }
+        if (monthInt == 9 && dayInt >= 23) {
+            result = "天秤座";
+        }
+        if (monthInt == 10 && dayInt <= 23) {
+            result = "天秤座";
+        }
+        if (monthInt == 10 && dayInt >= 24) {
+            result = "天蝎座";
+        }
+        if (monthInt == 11 && dayInt <= 22) {
+            result = "天蝎座";
+        }
+        if (monthInt == 11 && dayInt >= 23) {
+            result = "射手座";
+        }
+        if (monthInt == 12 && dayInt <= 21) {
+            result = "射手座";
+        }
+        if (monthInt == 12 && dayInt >= 22) {
+            result = "摩羯座";
+        }
+        if (monthInt == 1 && dayInt <= 19) {
+            result = "摩羯座";
+        }
+        return result;
+    }
+    //endregion
+}

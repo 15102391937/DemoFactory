@@ -1,0 +1,32 @@
+a.txt             所有 a.txt 文件
+*.txt             所有 .txt 结尾的 文件
+/*.txt            根目录下 .txt 结尾的 文件
+
+dirt/             所有 dirt/目录下 所有 文件
+**/dirt           同上
+**/dirt/*         同上
+**/dirt/a.txt     所有 dirt/一级目录下 a.txt 文件
+**/dirt/**/a.txt  所有 dirt/目录下 a.txt 文件
+
+/dirt             根目录下 dirt/目录下 所有 文件
+/dirt/            同上
+dirt/*            同上
+/dirt/*           同上
+
+/dirt/a.txt       根目录下 dirt/一级目录下 a.txt 文件
+dirt/a.txt        同上
+dirt/**/a.txt     根目录下 dirt/目录下 a.txt 文件
+
+/dirt/*.txt       根目录下 dirt/一级目录下 .txt 结尾的 文件
+dirt/*.txt        同上 (不忽略 dirt/dirt2/a2.txt 和 dirt0/dirt/a2.txt)
+
+dirt/**/dirt2     根目录下 dirt/目录下 dirt2目录下 所有 文件
+
+只需要管理 根目录下 dirt/一级目录下 a.txt文件：
+/dirt/* (不能写为/dirt/，否则父目录被前面的规则排除掉了)
+!/dirt/a.txt
+
+只需要管理 所有 dirt/一级目录下 所有 a.txt文件：
+**/dirt/*
+!**/dirt/a.txt（不能写为!/dirt/a.txt，那是管理根目录下的a.txt）
+（使用!**/dirt/**/a.txt也不能管理dirt/dirt2/a.txt，因为dirt2父目录被忽略了）

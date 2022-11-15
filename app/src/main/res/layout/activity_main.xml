@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv1"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="screen" />
+
+            <TextView
+                android:id="@+id/tv2"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="aidl  Demo" />
+
+            <TextView
+                android:id="@+id/tv3"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="Messenger  Demo" />
+
+            <TextView
+                android:id="@+id/tv4"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="ScreenSize" />
+
+            <TextView
+                android:id="@+id/tv5"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="web go" />
+
+            <TextView
+                android:id="@+id/tv6"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="yxopen" />
+
+            <TextView
+                android:id="@+id/tv7"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="popup" />
+
+            <TextView
+                android:id="@+id/tv8"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="listToArgs" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvr_1"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="Parse Url" />
+
+            <TextView
+                android:id="@+id/tvr_2"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="aidl  Demo" />
+
+            <TextView
+                android:id="@+id/tvr_3"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="do some test" />
+
+            <TextView
+                android:id="@+id/tvr_4"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="Messenger  Demo2" />
+
+            <TextView
+                android:id="@+id/tvr_5"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="startOtherApp" />
+
+            <TextView
+                android:id="@+id/tvr_6"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="Coroutine" />
+
+            <TextView
+                android:id="@+id/tvr_7"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="SmartTable" />
+
+            <TextView
+                android:id="@+id/tvr_8"
+                style="@style/width_mathch_height_30_33_15_center"
+                android:text="hesuan" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/seekbar_progress_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="7" />
+
+    <SeekBar
+        android:id="@+id/seekbar_progress"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_margin="15dp"
+        android:max="10"
+        android:progress="7" />
+</LinearLayout>
