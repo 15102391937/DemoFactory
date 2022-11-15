@@ -32,7 +32,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.tvr_5 -> StartOtherAppActivity.start(bActivity)
             R.id.tvr_6 -> CoroutineActivity.start(bActivity)
             R.id.tvr_7 -> SmartTableActivity.start(bActivity)
-            R.id.tvr_8 -> SmartTableActivity.start(bActivity)
+            R.id.tvr_8 -> TizhiActivity.start(bActivity)
         }
     }
 
@@ -60,6 +60,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         findViewById<View>(R.id.tvr_5).setOnClickListener(this)
         findViewById<View>(R.id.tvr_6).setOnClickListener(this)
         findViewById<View>(R.id.tvr_7).setOnClickListener(this)
+        findViewById<View>(R.id.tvr_8).setOnClickListener(this)
     }
 
     private fun doSomeTest() {
