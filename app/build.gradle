@@ -91,7 +91,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.cgy.chengy.demofactory2"
+        applicationId "com.cgy.chengy.demofactorytizhi"
         //设置支持最低手机的版本
         minSdkVersion rootProject.minSdkVersion
         //使用哪个版本的api特性

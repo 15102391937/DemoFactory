@@ -161,7 +161,7 @@ public class TizhiActivity extends BaseActivity {
             tvweizhi1.setText("胸");
             tvweizhi2.setText("腹");
             tv_name1.setText("陈同学的身体密度为：");
-            tv_name2.setText("陈同学的身体密度为：");
+            tv_name2.setText("陈同学的体脂率为：");
             iv_xingbie.setImageResource(R.mipmap.qingtou_nan);
             based1 = nand1;
             based2 = nand2;
