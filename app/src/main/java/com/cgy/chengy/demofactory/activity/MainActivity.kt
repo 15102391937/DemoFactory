@@ -2,12 +2,8 @@ package com.cgy.chengy.demofactory.activity
 
 import android.Manifest
 import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.Settings
 import android.support.v4.app.ActivityCompat
 import android.view.View
 import android.widget.SeekBar
@@ -28,6 +24,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.tvr_1 -> ParseUrlActivity.start(bActivity)
             R.id.tvr_2 -> AidlTwoActivity.start(bActivity)
             R.id.tvr_3 -> doSomeTest()
+            R.id.tvr_4 -> CalendarActivity.start(bActivity)
             R.id.tvr_5 -> StartOtherAppActivity.start(bActivity)
             R.id.tvr_8 -> TizhiActivity.start(bActivity)
         }
@@ -85,9 +82,17 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
         seekbar_progress_tv?.setOnClickListener {
             when {
-                ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) === PackageManager.PERMISSION_DENIED -> {
-                    ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), 1)//请求权限
+                ActivityCompat.checkSelfPermission(
+                    activity,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) === PackageManager.PERMISSION_DENIED -> {
+                    ActivityCompat.requestPermissions(
+                        activity,
+                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE),
+                        1
+                    )//请求权限
                 }
+
                 else -> {
                     GameShotActivity.start(activity, Integer.parseInt((seekbar_progress_tv!!.text.toString())))
 //                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

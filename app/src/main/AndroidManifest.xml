@@ -29,14 +29,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-<!--        <activity android:name=".activity.TizhiActivity">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--        <activity android:name=".activity.TizhiActivity">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.CalendarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -45,20 +45,15 @@
 
         <activity android:name=".activity.ScreenSizeActivity" />
         <activity android:name=".activity.AidlActivity" />
-        <activity android:name=".activity.MessengerActivity" />
         <activity android:name=".activity.WebGoActivity" />
         <activity android:name=".activity.ParseUrlActivity" />
-        <activity android:name=".activity.SimpleWebViewActivity" />
         <activity android:name=".activity.AidlTwoActivity" />
-        <activity android:name=".activity.MessengerTwoActivity" />
         <activity android:name=".activity.StartOtherAppActivity" />
-        <activity android:name=".activity.YxOpenActivity" />
+        <activity android:name=".activity.TizhiActivity" />
         <activity
             android:name=".yxapi.YXEntryActivity"
             android:exported="true" />
-        <activity android:name=".activity.CoroutineActivity" />
-        <activity android:name=".activity.PopupActivity" />
-        <activity android:name=".activity.SmartTableActivity" />
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.ListToArgsActivity" />
         <activity
             android:name=".activity.GameShotActivity"
