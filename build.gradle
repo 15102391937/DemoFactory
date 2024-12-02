@@ -1,11 +1,11 @@
 buildscript {
     ext {
-        compileSdkVersion = 29
+        compileSdkVersion = 30
         buildToolsVersion = '29.0.0'
         minSdkVersion = 19
-        targetSdkVersion = 29
-        kotlin_version = '1.3.20'
-        gradleVersion = '4.2.0'
+        targetSdkVersion = 30
+        kotlin_version = '1.7.20'
+        gradleVersion = '7.3.0'
         dataBindingCompilerVersion = gradleVersion
         constraintLayoutVersion = '1.1.2'
         junitVersion = '4.12'
@@ -34,11 +34,8 @@ buildscript {
         shadowLayoutLibraryVersion = '1.0.3'
         bindinglistadapterVersion = '1.0.1'
         corektxVersion = '1.0.0-rc02'
-        bannerVersion = '1.4.10'
         flycoTabLayout_LibVersion = '2.1.2@aar'
         smartrefreshVersion = '1.0.5.1'
-        commonrefreshlayoutVersion = '2.4'
-        bannerVersion = '1.4.10'
         rxlifecycle2Version = '2.2.1'
     }
     repositories {

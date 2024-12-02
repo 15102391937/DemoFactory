@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 //配置了apply plugin: 'com.android.application'后， module作为app使用才有android{…}
@@ -17,11 +16,6 @@ android {
     //dataBinding
     dataBinding {
         enabled true
-    }
-
-    //通过注解支持kotlin数据类序列化
-    androidExtensions {
-        experimental = true
     }
 
     //Dex可选项参数
@@ -115,19 +109,6 @@ android {
 
     //指定flavor维度可选集合，gradle3.0之后，配置flavor必须有
     flavorDimensions "mode"
-
-}
-
-//依赖冲突解决，强制jar包版本
-configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == 'com.android.support') {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion "$supportLibraryVersion"
-            }
-        }
-    }
 }
 
 dependencies {

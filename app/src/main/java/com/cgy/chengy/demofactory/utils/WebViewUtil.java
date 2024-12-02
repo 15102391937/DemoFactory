@@ -8,7 +8,6 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.cgy.chengy.demofactory.R;
-import com.mylhyl.crlayout.SwipeRefreshWebView;
 
 
 /**
@@ -23,29 +22,6 @@ public class WebViewUtil {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return initScheme(view, url);
-            }
-        });
-    }
-
-    public static void initFreshWebView(final SwipeRefreshWebView swipeRefreshWebView, WebView webView, final TextView titleTv) {
-        swipeRefreshWebView.autoRefresh(R.color.colorPrimary);
-        initWebSetting(webView);
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (swipeRefreshWebView != null) {
-                    swipeRefreshWebView.autoRefresh();
-                }
-                return initScheme(view, url);
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                String title = view.getTitle();
-                if (!TextUtils.isEmpty(title)) {
-                    titleTv.setText(title);
-                }
             }
         });
     }

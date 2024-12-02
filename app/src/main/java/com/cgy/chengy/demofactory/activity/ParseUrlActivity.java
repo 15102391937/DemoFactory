@@ -141,7 +141,6 @@ public class ParseUrlActivity extends BaseActivity {
                 tv_content.setText(description);
                 Glide.with(bActivity).load(img).placeholder(R.mipmap.ic_launcher).into(iv);
                 ll_container.setOnClickListener(v -> {
-                    SimpleWebViewActivity.Companion.start(bActivity, url);
                 });
             } else {
                 Toast.makeText(bActivity, "解析错误", Toast.LENGTH_SHORT).show();

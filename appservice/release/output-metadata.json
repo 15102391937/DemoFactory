@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.cgy.chengy.demofactory2",
+  "applicationId": "com.cgy.chengy.demofactory",
   "variantName": "release",
   "elements": [
     {
@@ -12,7 +12,7 @@
       "filters": [],
       "versionCode": 1,
       "versionName": "1.0.1",
-      "outputFile": "com.cgy.chengy.demofactory2_V1.0.1_build1_release_release.apk"
+      "outputFile": "com.cgy.chengy.demofactory_V1.0.1_build1_release_release.apk"
     }
   ]
 }

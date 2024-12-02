@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 //配置了apply plugin: 'com.android.application'后， module作为app使用才有android{…}
@@ -17,11 +16,6 @@ android {
     //dataBinding
     dataBinding {
         enabled true
-    }
-
-    //通过注解支持kotlin数据类序列化
-    androidExtensions {
-        experimental = true
     }
 
     //Dex可选项参数
@@ -91,7 +85,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.cgy.chengy.demofactorytizhi"
+        applicationId "com.cgy.chengy.demofactory"
         //设置支持最低手机的版本
         minSdkVersion rootProject.minSdkVersion
         //使用哪个版本的api特性
@@ -118,21 +112,9 @@ android {
 
 }
 
-//依赖冲突解决，强制jar包版本
-configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == 'com.android.support') {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion "$supportLibraryVersion"
-            }
-        }
-    }
-}
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    provided files('libs/gson-2.7.jar')
+    implementation files('libs/gson-2.7.jar')
     //测试框架
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
@@ -154,11 +136,7 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.11.3'
     implementation 'com.github.bumptech.glide:glide:3.8.0'
     //下拉刷新控件---给webView下拉刷新用
-    implementation 'com.mylhyl:commonrefreshlayout:2.4'
     implementation files('libs/yxopen.jar')
-    implementation 'com.github.razerdp:BasePopup:2.1.8'
     //table控件
     implementation 'com.github.huangyanbin:SmartTable:2.2.0'
-    //banner
-    implementation 'com.youth.banner:banner:1.4.10'
 }

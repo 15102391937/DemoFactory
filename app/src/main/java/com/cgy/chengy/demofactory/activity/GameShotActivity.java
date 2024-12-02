@@ -19,6 +19,8 @@ import com.cgy.chengy.demofactory.app.BaseActivity;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +51,7 @@ public class GameShotActivity extends BaseActivity {
 
     private void initList() {
         try {
-            String fileDirectoryPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "agame";
+            String fileDirectoryPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/agame";
             File fileDirectory = new File(fileDirectoryPath);
             File[] list = fileDirectory.listFiles();
             for (int i = 0; i < list.length; i++) {
@@ -58,6 +60,8 @@ public class GameShotActivity extends BaseActivity {
                 Bitmap originalBitmap = BitmapFactory.decodeFile(list[i].getAbsolutePath(), options);
                 Bitmap bitmap = Bitmap.createBitmap(originalBitmap, 44, 380, 452, 508);
                 mList.add(bitmap);
+//                Bitmap bitmap = Bitmap.createBitmap(originalBitmap, 75, 185, 385, 480);
+//                bitmap2File(bitmap, i + 1 + ".jpg");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,5 +96,71 @@ public class GameShotActivity extends BaseActivity {
                 iv = view.findViewById(R.id.iv);
             }
         }
+    }
+
+    private String bitmap2File(Bitmap bitmap, String fileName) {
+        String shareDirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/agame2/";
+        createDir(new File(shareDirPath));
+        File f = new File(shareDirPath + fileName);
+        try {
+            FileOutputStream fOut;
+            fOut = new FileOutputStream(f);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+            fOut.flush();
+            fOut.close();
+        } catch (IOException e) {
+            return null;
+        }
+        return f.getAbsolutePath();
+    }
+
+    private boolean createDir(File file) {
+        if (file == null) return false;
+        if (!file.exists() || !file.isDirectory()) {
+            if (file.exists()) {
+                try {
+                    if (!delete(file)) return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                return file.mkdirs();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+    private boolean delete(final File file) {
+        if (file == null) return false;
+        if (file.isDirectory()) {
+            return deleteDir(file);
+        }
+        return deleteFile(file);
+    }
+
+    private boolean deleteDir(final File dir) {
+        if (dir == null) return false;
+        // dir doesn't exist then return true
+        if (!dir.exists()) return true;
+        // dir isn't a directory then return false
+        if (!dir.isDirectory()) return false;
+        File[] files = dir.listFiles();
+        if (files != null && files.length != 0) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    if (!file.delete()) return false;
+                } else if (file.isDirectory()) {
+                    if (!deleteDir(file)) return false;
+                }
+            }
+        }
+        return dir.delete();
+    }
+
+    private boolean deleteFile(final File file) {
+        return file != null && (!file.exists() || file.isFile() && file.delete());
     }
 }
