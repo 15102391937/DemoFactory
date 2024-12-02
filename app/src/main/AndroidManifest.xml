@@ -22,9 +22,9 @@
     <application
         android:name=".app.App"
         android:allowBackup="true"
-        android:icon="@mipmap/gameshot"
+        android:icon="@mipmap/daka"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/gameshot"
+        android:roundIcon="@mipmap/daka"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">

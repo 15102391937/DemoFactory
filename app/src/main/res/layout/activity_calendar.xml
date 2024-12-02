@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,4 +10,105 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvsbxb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_weight="1"
+            android:textColor="@color/red_e3"
+            tools:text="fasd\n待实缴" />
+
+        <TextView
+            android:id="@+id/tvxztt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_weight="1"
+            android:textColor="@color/red_e3"
+            tools:text="fasd\n待实缴" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etshagnban"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_r5"
+                android:hint="上班"
+                android:inputType="number"
+                android:paddingHorizontal="10dp"
+                android:singleLine="true"
+                android:textColor="@color/red_e3" />
+
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="10dp" />
+
+            <EditText
+                android:id="@+id/etxiaban"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_r5"
+                android:hint="下班"
+                android:inputType="number"
+                android:paddingHorizontal="10dp"
+                android:singleLine="true"
+                android:textColor="@color/red_e3" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="60dp"
+            android:layout_height="1dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etxizao"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_r5"
+                android:hint="洗澡"
+                android:paddingHorizontal="10dp"
+                android:singleLine="true"
+                android:textColor="@color/red_e3" />
+
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="10dp" />
+
+            <EditText
+                android:id="@+id/ettangtou"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_r5"
+                android:hint="烫头"
+                android:paddingHorizontal="10dp"
+                android:singleLine="true"
+                android:textColor="@color/red_e3" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

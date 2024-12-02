@@ -85,7 +85,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.cgy.chengy.demofactory"
+        applicationId "com.cgy.chengy.demofactory.daka"
         //设置支持最低手机的版本
         minSdkVersion rootProject.minSdkVersion
         //使用哪个版本的api特性

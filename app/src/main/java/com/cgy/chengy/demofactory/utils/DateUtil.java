@@ -14,6 +14,7 @@ import static java.lang.System.currentTimeMillis;
  */
 public class DateUtil {
     public static final String TIME_REG_YMD = "yyyy年MM月dd日";
+    public static final String TIME_REG_YMD1 = "yyyyMMdd";
     public static final String TIME_REG_YMD2 = "yyyy/MM/dd";
     public static final String TIME_REG_YMD3 = "yyyy.MM.dd";
     public static final String TIME_REG_YMD4 = "yyyy-MM-dd";
@@ -182,6 +183,12 @@ public class DateUtil {
      */
     public static String getCurrent_yMd() {
         return dateToStrReg(new Date(), TIME_REG_YMD);
+    }
+    /**
+     * 当前时间  转为  yyyyMMdd
+     */
+    public static String getCurrent_yMd1() {
+        return dateToStrReg(new Date(), TIME_REG_YMD1);
     }
 
     /**
